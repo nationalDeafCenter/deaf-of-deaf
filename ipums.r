@@ -10,14 +10,14 @@ dat <- read_csv('deafHHdata.csv')
 names(dat) <- tolower(names(dat))
 
 dat <- dat%>%
-    filter(gq%in%c(1,2))
+    filter(gq%in%c(1,2)) ### not in group quarters
 
 gc()
 
 dat1 <- dat%>%
     group_by(serial)%>%
       mutate(ndeaf=sum(diffhear==2,na.rm=TRUE))%>%
-        filter(ndeaf>0)%>%
+        filter(ndeaf>0)%>% ### only look at HH with at least 1 deaf person
           ungroup()
 
 
@@ -65,33 +65,61 @@ deafKids <- filter(deafKids,diffhear==2,age<=17)
 
 deafKids%>%group_by(age)%>%summarize(hasParent=mean(hasParent))%>%ggplot(aes(age,hasParent))+geom_point()+ylim(0,1)+geom_smooth()
 
-
+### estimate the total # in a subgroup & the % of non-GQ deaf kids who are in subgroup
+## rounding rules based on https://arxiv.org/ftp/arxiv/papers/1301/1301.1034.pdf
 estSubst <- function(subst,name){
-  N <- round(svTot(deafKids,subst,w1='perwt',wrep=paste0('repwtp',1:80)))
+  N <- svTot(deafKids,subst,w1='perwt',wrep=paste0('repwtp',1:80))
+  N <- prettyNum(c(round(N[1:2],-floor(log(N['se'],10))+1),N[3]),big.mark=',')
   per <- estSEstr(subst,w1='perwt',wrep=paste0('repwtp',1:80),sdat=deafKids)
-  per[c(1,2)] <- round(per[c(1,2)]*100,1)
+  roundPer <- ifelse(per['se']==0,0,-floor(log(per['se']*100,10))+1)
+  per <- c(
+      formatC(round(per[c(1,2)]*100,roundPer),roundPer,format='f'),
+      prettyNum(per[3],big.mark=',')
+  )
   cbind(tibble(`living with...`=c(name,''),`N/%`=c('N','%')),rbind(N,per))
 }
 
+############################################################################################################
+#### Questions
+### from https://docs.google.com/document/d/1LbjhZl6ZdEJJMl7wfSLOhn7OYDXLNXvaV7RXCK5_oMo/edit
+
+## Among deaf children (17 or younger) living in non-institutionalized/group quarters,
+
+### living with deaf adults:
+## how many of them live with deaf adults 18+?
+## How many live with more than one deaf adult?
+## How many live with at least one deaf parent?
+## How many live with two deaf parents?
+
+### living with (other) deaf children:
+## how many of them live with other deaf children?
+## How many with more than one other deaf child?
+############################################################################################################
+
+### total # of deaf children <18 (excl. GQ)
 total <- round(svTot(deafKids,w1='perwt',wrep=paste0('repwtp',1:80)))
+
 
 ### proportions deaf kids
 kidEst <- bind_rows(
-  estSubst('numDeafParents>0','at least 1 deaf parent'),
-  estSubst('numDeafParents==1','exactly 1 deaf parent'),
-  estSubst('numDeafParents==2','exactly 2 deaf parents'),
-  estSubst('numDeafAdults>0','at least 1 deaf adult'),
-  estSubst('numDeafAdults>1','at least 3 deaf adults'),
-  estSubst('numOtherDeafChildren>0','at least 1 other deaf kid'),
-  estSubst('numOtherDeafChildren>1','at least 2 other deaf kids'))%>%
-  add_case(`living with...`="Total/Any",`N/%`='N',est=total['est'],se=total['se'],n=total['n'],.before=1)%>%
+    estSubst('age<18','TOTAL (non-GQ deaf children)'),
+    estSubst('numDeafParents>0','at least 1 deaf parent'),
+    estSubst('numDeafParents==1','exactly 1 deaf parent'),
+    estSubst('numDeafParents==2','exactly 2 deaf parents'),
+    estSubst('numDeafAdults>0','at least 1 deaf adult'),
+    estSubst('numDeafAdults>1','at least 2 deaf adults'),
+    estSubst('numOtherDeafChildren>0','at least 1 other deaf kid'),
+    estSubst('numOtherDeafChildren>1','at least 2 other deaf kids'))%>%
     add_case(`living with...`="NOTES:")%>%
     add_case(`living with...`=paste("Year=",paste(unique(dat1$year),collapse=', ')))%>%
-      add_case(`living with...`="Excluding deaf children in group quarters")%>%
-        add_case(`living with...`="Child: <18; Adult: 18+")%>%
-          add_case(`living with...`="Denominator for % is all deaf children")
+    add_case(`living with...`="Excluding deaf children in group quarters")%>%
+    add_case(`living with...`="Child: <18; Adult: 18+")%>%
+    add_case(`living with...`="Denominator for % is all deaf children")
 
-write.csv(kidEst,'deafKidsWdeafParents.csv',row.names=FALSE)
+kidEst[is.na(kidEst)] <- ''
+
+write.csv(kidEst,'deafKidsWdeafParentsAndKids.csv',row.names=FALSE)
+
 
 
 
