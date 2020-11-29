@@ -5,20 +5,26 @@ source('generalCode/estimationFunctions.r')
 #dat <- read_csv('../../data/ipums/usa_00001.csv', n_max=20)
 #dat <- read.csv.ffdf(file='../../data/ipums/usa_00001.csv')
 
-dat <- read_csv('../../data/ipums/deafFam2018.csv')
+dat <- read_csv('deafHHdata.csv')
 
 names(dat) <- tolower(names(dat))
 
+dat <- dat%>%
+    filter(gq%in%c(1,2))
+
+gc()
+
 dat1 <- dat%>%
-  filter(gq%in%c(1,2))%>%
     group_by(serial)%>%
       mutate(ndeaf=sum(diffhear==2,na.rm=TRUE))%>%
         filter(ndeaf>0)%>%
           ungroup()
+
+
 rm(dat)
+gc()
 
-
-save(dat1,file='../../data/ipums/deaf.RData')
+save(dat1,file='deaf.RData')
 
 famDat <- dat1%>%
   group_by(serial)%>%
