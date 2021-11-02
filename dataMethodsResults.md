@@ -37,7 +37,7 @@ The 2019 ACS sample contains data pertaining to $n=$3,239,553 individuals, inclu
 For the current study, we exclude people living in group quarters such as prisons, dormatories, or group homes. 
 There were 151,321 sampled subjects in group quarters, including a total of 151,321 deaf individuals and  102 deaf children (representing an estimated 8,084,362 people, 8,084,362 whom are deaf and 4,020 are deaf children in the group quarters population.)
 Excluding group quarters leaves a total sample size of 3,088,232 people, including 126,847 deaf people and 3,175 deaf children. 
-This sample represents a population total of 320,155,161 people, including  deaf people and 402,331 deaf children.
+This sample represents a population total of 320,155,161 people, including 11,426,484 deaf people and 402,331 deaf children.
 
 Approximately 7% of people labeled as "deaf" and 9% of people labeled as "hearing" did not respond to the ACS question about hearing difficulty (i.e. item nonresponse). 
 Their deaf status was instead imputed by the ACS.
@@ -55,7 +55,7 @@ These represent an estimated 10,359,959$\pm$71,207 such households in the US pop
 
 ### Definitions:
 
-For the purpose of this study, deafness is defined as a response of "Yes" to the ACS question "Is this person deaf or does he/she have serious difficulty hearing?" We define anyone under the age of 18 as a child.
+For the purpose of this study, deafness is defined as a response of "Yes" to the ACS question "Is this person deaf or does he/she have serious difficulty hearing?" We define anyone under the age of 18 as a child, and anyone 18 or older as an adult. 
   
 ### Inferring relationships
 
@@ -68,7 +68,7 @@ A full description of this process can be found in the (IPUMS User Guide (Chapte
 Most relationships (approximately 
 91%
 of inferred father-child and 
-91%
+89%
 of inferred mother-child relationships) were inferred unambiguously, including cases in which Person 1 identifies themselves as the parent or child of someone else in the household. 
 The remainder of relationships were inferred following a set of rules, that are themselves based on assumptions regarding typical household structures, surnames, and other factors.
 
@@ -102,6 +102,8 @@ The analyses were peformed in R (CITE) and replication data and code (in Rmarkdo
 
 ## Results
 
+
+
 <!-- ############################################################################################################ -->
 <!-- #### Questions -->
 <!-- ### from https://docs.google.com/document/d/1LbjhZl6ZdEJJMl7wfSLOhn7OYDXLNXvaV7RXCK5_oMo/edit -->
@@ -120,42 +122,58 @@ The analyses were peformed in R (CITE) and replication data and code (in Rmarkdo
 <!-- ############################################################################################################ -->
 
 
+
+The results of our analysis may be seen in Table ??? and Figure ???.
+We estimate that, in 2019, there were a total of 
+402,000 $\pm$ 21,000 deaf children in the US, excluding those living in group quarters.
+Of those, 40,200 $\pm$ 6,900 or 9.99 $\pm$ 1.61% lived with at least one deaf parent, 
+and 6,700 $\pm$ 3,300 or 1.66 $\pm$ 0.82% lived with two deaf parents.
+
+Considering all adults in the household, including both parents and non-parents, we found that 
+56,800 $\pm$ 7,200 or 14.13 $\pm$ 1.61% of deaf children lived in a household with at least one deaf adult, and 
+10,800 $\pm$ 3,500 or 2.68 $\pm$ 0.86% lived with at least two. 
+
+Finally, we found that 
+35,700 $\pm$ 7,400 or 8.87 $\pm$ 1.70% of deaf children lived in a household with at least one other deaf child, and 
+6,400 $\pm$ 3,700 or 1.59 $\pm$ 0.91% lived with at least two other deaf children. 
+
+
+
+Table: The numbers (N) and percentages of deaf children outside of group quarters who live with at least 1, exactly 1, or at least 2 deaf parents, deaf adults, or other deaf children, along with standard errors (SE) and sample sizes (n)
+
+|Living with...                            |N/% |Estimate   |SE       |n     |
+|:-----------------------------------------|:---|:----------|:--------|:-----|
+|TOTAL (non-GQ deaf children)              |N   |402,000    |10,000   |3,175 |
+|TOTAL (non-GQ deaf children)              |%   |100.000000 |0.000000 |3,175 |
+|at least 1 deaf parent                    |N   |40,200     |3,400    |298   |
+|at least 1 deaf parent                    |%   |9.99       |0.80     |3,175 |
+|exactly 1 deaf parent                     |N   |33,500     |2,800    |255   |
+|exactly 1 deaf parent                     |%   |8.33       |0.66     |3,175 |
+|exactly 2 deaf parents                    |N   |6,700      |1,700    |43    |
+|exactly 2 deaf parents                    |%   |1.66       |0.41     |3,175 |
+|at least 1 deaf adult                     |N   |56,800     |3,600    |433   |
+|at least 1 deaf adult                     |%   |14.13      |0.80     |3,175 |
+|at least 2 deaf adults                    |N   |10,800     |1,800    |82    |
+|at least 2 deaf adults                    |%   |2.68       |0.43     |3,175 |
+|at least 1 other deaf kid                 |N   |35,700     |3,700    |257   |
+|at least 1 other deaf kid                 |%   |8.87       |0.85     |3,175 |
+|at least 2 other deaf kids                |N   |6,400      |1,900    |45    |
+|at least 2 other deaf kids                |%   |1.59       |0.46     |3,175 |
+|NOTES:                                    |    |           |         |      |
+|Year= 2019                                |    |           |         |      |
+|Excluding deaf children in group quarters |    |           |         |      |
+|Child: <18; Adult: 18+                    |    |           |         |      |
+|Denominator for % is all deaf children    |    |           |         |      |
+
+
+![Estimated percentages of deaf children outside of group quarters who live with varying numbers of deaf parents, deaf adults, or other deaf children](figure/plots-1.png)
+
 ```
-## [1] 1
+## Saving 7 x 7 in image
 ```
 
 
 
-|         |living with...                            |N/% |est     |se     |n     |
-|:--------|:-----------------------------------------|:---|:-------|:------|:-----|
-|N...1    |TOTAL (non-GQ deaf children)              |N   |402,000 |10,000 |3,175 |
-|per...2  |                                          |%   |100     |0      |3,175 |
-|N...3    |at least 1 deaf parent                    |N   |40,200  |3,400  |298   |
-|per...4  |                                          |%   |9.99    |0.80   |3,175 |
-|N...5    |exactly 1 deaf parent                     |N   |33,500  |2,800  |255   |
-|per...6  |                                          |%   |8.33    |0.66   |3,175 |
-|N...7    |exactly 2 deaf parents                    |N   |6,700   |1,700  |43    |
-|per...8  |                                          |%   |1.66    |0.41   |3,175 |
-|N...9    |at least 1 deaf adult                     |N   |56,800  |3,600  |433   |
-|per...10 |                                          |%   |14.13   |0.80   |3,175 |
-|N...11   |at least 2 deaf adults                    |N   |10,800  |1,800  |82    |
-|per...12 |                                          |%   |2.68    |0.43   |3,175 |
-|N...13   |at least 1 other deaf kid                 |N   |35,700  |3,700  |257   |
-|per...14 |                                          |%   |8.87    |0.85   |3,175 |
-|N...15   |at least 2 other deaf kids                |N   |6,400   |1,900  |45    |
-|per...16 |                                          |%   |1.59    |0.46   |3,175 |
-|...17    |NOTES:                                    |    |        |       |      |
-|...18    |Year= 2019                                |    |        |       |      |
-|...19    |Excluding deaf children in group quarters |    |        |       |      |
-|...20    |Child: <18; Adult: 18+                    |    |        |       |      |
-|...21    |Denominator for % is all deaf children    |    |        |       |      |
-
-
-![plot of chunk plots](figure/plots-1.png)
-
-
-
-#write.csv(kidEst,'deafKidsWdeafParentsAndKids.csv',row.names=FALSE)
 
 
 
