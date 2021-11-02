@@ -1,0 +1,186 @@
+/**
+  * This file expects one variable to have been created:
+  *   ga_tracking_code : The Google Analytics tracking code for the property
+  * Version 1.5
+  *   get rid of mono-mixed since we're using a different font solution
+  *   disable userbar stuff for napp
+  * Version 1.4
+  *   - added registration url and added link when not logged in.
+  * Version 1.3
+  *   - added code to look for accordions and add appropriate behavior
+  * Version 1.2 
+  *   - added function to look for mono-mixed classes for lettering
+  *   - removed google analytics injector
+  *   - added ajax call to /citations endpoint to popluate it in static pages.
+  */
+
+// determine the project from the URL
+var re_project = /(\/[^\/]+)\//;
+var re_results = window.location.pathname.match(re_project);
+var url_project_root = re_results[1];
+
+var obj_logInLink = $("#logInLink");
+var url_dynamicPrefix = url_project_root + "-action";
+var url_checkLogIn = url_dynamicPrefix + "/users/is_logged_in.json";
+var citationLink = url_dynamicPrefix + "/citations";
+
+var url_logIn = url_dynamicPrefix + "/users/login";
+var url_logOut = url_dynamicPrefix + "/users/logout";
+var url_Register = url_dynamicPrefix + "/menu";
+
+// international is messed up
+if (url_Register == "https://uma.pop.umn.edu/international/user/new") {
+  url_Register = "https://uma.pop.umn.edu/ipumsi/user/new";
+}
+// pma and dhs are different 
+if (url_project_root == "/pma" || url_project_root == "/idhs") {
+  url_Register = url_project_root + "/register.shtml";
+}
+
+
+var url_Account = url_dynamicPrefix + "/menu";
+
+/* need to use jQuery rather than $ for drupal includes */
+jQuery(document).ready(function() {
+  var citation = $("[data-citation]");
+  if(citation.length){
+    $.ajax({
+      url: citationLink,
+      type: "GET",
+      success: function (data) {
+        citation.html(data);
+        citation.removeAttr("data-citation-loading");
+      },
+      error: function(jqxhr, textStatus, thrownError){
+        $("[data-citation]").innerHTML("<p><em> &nbsp; data site not available &nbsp; </em></p>");
+      },
+      dataType: "text"
+    });
+  }
+
+  /* update the login link */
+  $.ajax({
+    url: url_checkLogIn,
+    type: "GET",
+    beforeSend: function (jqXHR, settings) {
+      this.theurl = settings.url;
+    },
+    success: function(data) {
+      obj_logInLink.css('display','inline');
+      if (data.logged_in && (url_project_root != "/napp")) {
+        // only do name if user bar exists
+        if ($("#user_bar").length != 0) {
+          var str_welcome = "Welcome";
+          if (data.user.first_name != null) {
+            str_welcome = "Welcome, " + data.user.first_name;
+          }
+
+          obj_logInLink.parent().append("<li><a href='" + url_Account  + "'>Account</a></li>");
+          obj_logInLink.parent().append("<li><p>" + str_welcome + "</p></li>");
+          obj_logInLink.html("<a href='" + url_logOut + "'>Log Out</a>");
+        } else {
+          obj_logInLink.html("<a href='" + url_logOut + "'>Log Out</a>");
+        }
+      } else {
+        if (url_project_root != "/napp") {
+          obj_logInLink.html("<a href='" + url_logIn + "'>Log In</a>");
+          obj_logInLink.before("<li><a href='" + url_Register + "' class='no-link-icon'>Register</a></li>");
+        }
+      }
+      if (data.alert) {
+        // data alert will attempt to inject before the first h1 appearing on the page.
+        // if this is not the page title, things could get interesting.
+        var page_title = $($("h1")[0]);
+        var alert_class = "alert-info";
+        // aler_class could be constructed more directly, but being explicit
+        // for now, while less flexible, is more predictable.
+        switch (data.alert.type) {
+          case "danger":
+            console.log("inject danger alert");
+            alert_class = "alert-danger";
+            break;
+          case "warning":
+            console.log("inject warning alert");
+            alert_class = "alert-warning";
+            break;
+          case "success":
+            console.log("inject success alert");
+            alert_class = "alert-success";
+            break;
+          case "info":
+            console.log("inject info alert");
+            alert_class = "alert-info";
+            break;
+          default:
+            console.log("inject unknown alert type");
+        }
+        if (data.alert.message) {
+          page_title.before("<div class='alert " + alert_class + "'>" + data.alert.message + "</div>");
+        } else {
+          console.log("alert of type " + data.alert.type + " declared without attached message");
+        }
+      }
+    },
+    error: function(jqxhr, textStatus, thrownError) {
+      if (url_project_root != "/napp") {
+        obj_logInLink.addClass('failed-login');
+        obj_logInLink.html("<p>data site not available &nbsp; </p>");
+        console.log("The call to '" + url_checkLogIn + "' did not return successfully:\nstatus: " + textStatus +  "\nerror: " + thrownError);
+      }
+    }
+  });
+  /*update the left navigation with the current page
+   *  this check is currently fragile and should be improved 
+   */
+  if((location.pathname.split("/")[2] != undefined) && (location.pathname.split("/")[2] != "")) {
+    if((location.pathname.split("/")[3] != undefined) && (location.pathname.split("/")[3] != "")) {
+      $('#sidebar-left li li:has(a[href^="' + url_project_root + '/' + location.pathname.split("/")[2] + '/' + location.pathname.split("/")[3] + '"])').addClass('active');
+    } else {
+      $('#sidebar-left li li:has(a[href^="' + url_project_root + '/' + location.pathname.split("/")[2] + '"])').addClass('active');
+    }
+  }
+  try {
+    if( $('.accordion') ) {
+      // define variables
+      var headers = $('.accordion .accordion-header');
+      var expandLink = $('.accordion-expand-all');
+
+      // collapse by default
+      var contentAreas = $('.accordion .accordion-content').hide();
+    
+      // add the accordion functionality
+      headers.click(function() {
+        var panel = $(this).next();
+        var isOpen = panel.is(':visible');
+
+        // open or close as necessary
+        panel[isOpen? 'slideUp': 'slideDown']()
+        
+        // trigger the correct custom event
+        .trigger(isOpen? 'hide': 'show');
+            
+        $(this).toggleClass("down accordion-selected");
+
+        // stop the link from causing a pagescroll
+        return false;
+      });
+
+      // hook up the expand/collapse all
+      expandLink.click(function(){
+        if ($('.accordion-expand-all').text() == "Expand all") {
+          $('.accordion-content').show();
+          $('.accordion-expand-all').text("Collapse all");
+          $('.accordion-header').addClass("down accordion-selected");
+        } else {
+          $('.accordion-content').hide();
+          $('.accordion-expand-all').text("Expand all");
+          $('.accordion-header').removeClass("down accordion-selected");
+        }
+      });
+    }
+  } catch(error) {
+    console.log('caught error of type ' + error.name + ' while loading accordion:\n' + error.message);
+  }
+});
+
+

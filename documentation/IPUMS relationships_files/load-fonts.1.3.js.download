@@ -1,0 +1,38 @@
+/* load-fonts.1.3
+ *  switch to newer fonts and a subset with tabular numbers baked in
+ */
+(function() {
+  // Optimization for Repeat Views
+  if( sessionStorage.criticalFoftDataUriFontsLoaded ) {
+    console.log("Fonts preloaded");
+    document.documentElement.className += " fonts-all";
+    return;
+  }
+
+  var critical_subset = new FontFaceObserver("Cabrito Sans Subset");
+  var fontset = new FontFaceObserver("Cabrito Sans");
+
+  // once critical subset is loaded, do the rest.  since we're using this font
+  // in the default set, I'm not sure this is needed.
+  critical_subset.load().then(function () {
+    console.log("Loaded Cabrito Sans Subset.");
+
+    // this class isn't really needed anymore
+    document.documentElement.className += " fonts-crit";
+
+    // loading defaults to 3 seconds.  let's give up to 8 seconds for 3 faces
+    //    and the possibility of slower connections.
+    fontset.load(null,8000).then(function () {
+      console.log("Loaded Cabrito Sans containing NormReg, CondDemi, and CondBold");
+      document.documentElement.className += " fonts-all";
+      
+      // Optimization for Repeat Views
+      sessionStorage.criticalFoftDataUriFontsLoaded = true;
+    }, function () {
+      console.log("Cabrito Sans failed to load.")
+    });
+  }, function () {
+    console.log("Cabrito Sans Subset failed to load.")
+  });
+
+})();

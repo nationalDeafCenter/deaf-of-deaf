@@ -1,0 +1,22 @@
+Rule 1. Unambiguous relationships
+
+    If the relationship7 of an individual to the household head/householder is son, daughter, or child then establish parental links to persons listed as head or wife, or if the relationship of an individual to the household head/householder is head, brother, or sister, then establish parental links to persons listed as mother or father, or
+    if the relationship of an individual to the household head/householder is wife, brother-in-law, or sister-in-law, then establish parental links to persons listed as mother-in-law or father-in-law.
+
+Rule 2. Grandchildren
+If the relationship of individual to household head/householder is listed as grandson, granddaughter, or grandchild, then establish parental link to the most proximate listed ever-married child and/or child-in-law with a plausible age difference. Plausible age differences are defined as 12 to 54 years for women, and 15 to 74 years for men. If there is more than one eligible parent, choose the most proximate.
+
+Rule 3. All other relatives and nonrelatives via household position
+Link relatives and nonrelatives not mentioned above to any preceding ever-married person with a plausible age difference as defined in rule 2, as long as there are no persons listed between them besides children or spouses of the potential parent. Links between relatives and nonrelatives are prohibited.
+
+Rule 4. All other relatives and nonrelatives via surname
+Same as Rule 3, except that surname similarity is substituted for the requirement that there are no persons listed between the parent and child. If more than one eligible parent is found, the most proximate is linked. This rule can only be applied in years with surname codes: 1850, 1860, 1870, 1880, 1910, 1920, 1940, and 1950.
+
+Rule 5. Grandchildren via children-ever-born or surviving
+Same as Rule 2, except evidence on children-ever-born (or children surviving in 1900 and 1910) is substituted for marital status of parent. This rule can not be used for 1850, 1860, 1870, 1880, 1920, 1940, or 1950.
+
+Rule 6. All other relatives and nonrelatives via children-ever-born or surviving
+Same as Rule 3, except evidence on children-ever-born (or children surviving in 1900 and 1910) is substituted for marital status of parent. Again, this rule can not be used for 1850-1880, 1920, 1940, or 1950.
+
+Rule 7. Spouse of linked parent
+If one parent is linked and has a spouse present, that spouse is linked as a stepparent. Users who want to limit their analysis to links that could be recognized in all census years can simply ignore links based on Rules 4 through 7. In each year, over 95 percent of links were established on the basis of Rule 1. For the period before 1980, over 99 percent of cases were linked on the basis of Rules 1, 2, or 3, which are fully compatible across census years. With the increase of births to never-married women in recent census years, however, Rules 5 and 6 have become increasingly important, since they substitute information on children-ever-born for information on marital status. We performed two basic checks for inconsistency of the family links. First, if two parents were linked but they were not married to each other, we unlinked the father. Second, if both partners in a married couple were linked to the same parent, we chose the best parental link based on detailed relationship code, surname, and proximity within the household.

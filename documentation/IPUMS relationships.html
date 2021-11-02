@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://usa.ipums.org/usa/chapter5/chapter5.shtml -->
+<html lang="en" class=" fonts-crit fonts-all"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>IPUMS USA</title>
+
+  <script type="text/javascript" async="" src="./IPUMS relationships_files/analytics.js.download"></script><script async="" src="./IPUMS relationships_files/gtm.js.download"></script><script>
+    { "@context":"http://schema.org",
+      "@type":"Organization",
+      "name":"IPUMS USA",
+      "url":"https://usa.ipums.org/",
+      "logo": "https://assets.ipums.org/_img/logo-USA-dark-342x96.png"
+    }
+  </script>
+
+  <meta name="description" content="IPUMS USA collects, preserves and harmonizes U.S. census microdata and provides easy access to this data with enhanced documentation. Data includes decennial censuses from 1790 to 2010 and American Community Surveys (ACS) from 2000 to the present.">
+  <meta name="keywords" content="Integrated Public Use Microdata Series, IPUMS, Minnesota Population Center, MPC, University of Minnesota, ISRDI, UMN, American Community Survey, ACS, Puerto Rican Community Survey, PRCS, Decennial Census, Census, IPUMS-USA, IPUMS USA, Population Statistics, Population">
+	
+  <meta name="author" content="MPC UX/UI Team">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PDMCB39');</script>
+  <!-- End Google Tag Manager -->
+		
+  <style>
+    @font-face {
+      font-family: "Cabrito Sans Subset";
+    }
+    @font-face {
+      font-family: "Cabrito Sans";
+    }
+  </style>
+
+  <link type="text/css" rel="stylesheet" href="./IPUMS relationships_files/font-faces.1.2.css" media="all">
+  <link type="text/css" rel="stylesheet" href="./IPUMS relationships_files/prism.css" media="all">
+  <link type="text/css" rel="stylesheet" href="./IPUMS relationships_files/isrdi-common.1.6.css" media="all">
+  <link type="text/css" rel="stylesheet" href="./IPUMS relationships_files/base-ipums-static.1.3.css" media="all">
+  <link type="text/css" rel="stylesheet" href="./IPUMS relationships_files/project-usa.1.4.css" medi="all">
+  
+  <link rel="icon" href="https://usa.ipums.org/usa/_img/favicon-16x16.ico" sizes="16x16" type="image/x-icon">
+  <link rel="icon" href="https://usa.ipums.org/usa/_img/favicon-32x32.ico" sizes="32x32" type="image/x-icon">
+
+  <!-- load jquery from a cdn -->
+  <script type="text/javascript" src="./IPUMS relationships_files/jquery.min.js.download"></script>
+
+  <!-- load page tune parameters and provide a jquery fallback -->
+  <script type="text/javascript">
+     window.jQuery || document.write('<script src="//assets.ipums.org/_js/jquery-3.4.1.min.js"><\/script>');
+  </script>
+
+  <!-- scripts to load immediately -->
+  <script type="text/javascript" src="./IPUMS relationships_files/fontfaceobserver.js.download"></script>
+  <script type="text/javascript" src="./IPUMS relationships_files/load-fonts.1.3.js.download"></script>
+
+  <!-- defer attribute allows page to continue loading as script loads and won't run script until page is done loading -->
+  <script type="text/javascript" src="./IPUMS relationships_files/prism.1.0.js.download" defer=""></script>
+  <script type="text/javascript" src="./IPUMS relationships_files/to-title-case.1.0.js.download" defer=""></script>
+  <script type="text/javascript" src="./IPUMS relationships_files/page-tune.1.5.js.download" defer=""></script>
+
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDMCB39"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+  <nav id="user_bar">
+    <ul class="list-menu">
+    <!-- this list will stack right to left -->
+      <li><a href="https://www.ipums.org/">ipums.org</a></li>
+      <li id="logInLink" style="display: inline;"><a href="https://usa.ipums.org/usa-action/users/logout">Log Out</a></li>
+    <li><a href="https://usa.ipums.org/usa-action/menu">Account</a></li><li><p>Welcome, Adam</p></li></ul>
+  </nav>
+
+	<div id="siteLogo"><a href="https://usa.ipums.org/usa/"><img src="./IPUMS relationships_files/logo-USA.png" alt="IPUMS USA"></a></div>
+
+  <nav id="multi_project_menu">
+    <!-- p class="projectSubtitle">USA</p -->
+  </nav>
+
+  <nav id="topNav">
+    <ul class="list-menu">
+      <li><a href="https://usa.ipums.org/usa/index.shtml">Home</a></li>
+      <li><a href="https://usa.ipums.org/usa-action/variables/group">Select Data</a></li>
+      <li><a href="https://usa.ipums.org/usa-action/extract_requests/download">My Data</a></li>
+      <li><a href="https://usa.ipums.org/usa/support.shtml">Support</a></li>
+    </ul>
+  </nav>
+
+
+	<div id="picturebar">
+		<div id="pic1"></div>
+		<div id="pic2"></div>
+		<div id="pic3"></div>
+		<div id="pic4"></div>
+		<div id="pic5"></div>
+		<div id="pic6"></div>
+	</div>
+</header>
+
+<div id="content">
+	<nav id="sidebar-left" class="item">
+		<h2>Site Navigation</h2>
+
+		<ul>
+			<li>
+				<h3>IPUMS USA</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa/about.shtml">About</a></li>
+					<li><a href="https://usa.ipums.org/usa-action/menu">Register</a></li>
+					<li><a href="https://makingagift.umn.edu/give/fund.html?id=22263" target="_blank" class="no-link-icon">Donate to IPUMS</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Data</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa-action/variables/group">Browse and Select Data</a></li>
+					<li><a href="https://usa.ipums.org/usa/sda/">Analyze Data Online</a></li>
+                    <li><a href="https://usa.ipums.org/usa/abacus.shtml">IPUMS Abacus</a></li>
+					<li><a href="https://usa.ipums.org/usa-action/extract_requests/download">Download or Revise My Data</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Supplemental Data</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa/volii/tgeotools.shtml">Geography &amp; GIS</a></li>
+					<li><a href="https://usa.ipums.org/usa/mlp.shtml">Linked Census Data</a></li>
+                    <li><a href="https://usa.ipums.org/usa/slavepums/index.html">1850-1860 Slave Samples</a></li>
+					<li><a href="https://usa.ipums.org/usa/1790_1840_intro2.shtml">1790-1840 Full Count Data</a></li>
+					<li><a href="https://usa.ipums.org/usa/fsrdc_info.shtml">Federal Statistical RDC</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Documentation</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa/doc.shtml">User Guide</a></li>
+					<li><a href="https://usa.ipums.org/usa/sampdesc.shtml">Sample Descriptions</a></li>
+					<li><a href="https://usa.ipums.org/usa/voliii/tEnumForm.shtml">Questionnaires</a></li>
+					<li><a href="https://usa.ipums.org/usa/voliii/tPublished.shtml">Published Census Volumes</a></li>
+					<li><a href="https://usa.ipums.org/usa/complete_count.shtml">Complete Count Data</a></li>
+					<li><a href="https://usa.ipums.org/usa-action/revisions">Revision History</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Support</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa-action/faq">FAQ</a></li>
+					<li><a href="https://usa.ipums.org/usa/tutorials.shtml">Video Tutorials</a></li>
+					<li><a href="https://forum.ipums.org/" target="_blank" class="no-link-icon">User Forum</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Research</h3>
+				<ul>
+					<li><a href="https://usa.ipums.org/usa/cite.shtml">Citing IPUMS USA</a></li>
+					<li><a href="http://bibliography.ipums.org/" target="_blank" class="no-link-icon">IPUMS Bibliography</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+
+  <div id="main" role="main">
+  <!-- BEGIN PLACING PAGE CONTENT -->
+    <h1 id="page-title">Family Interrelationships</h1>
+
+	<p><a href="https://usa.ipums.org/usa/doc.shtml">Go back to the IPUMS User's Guide</a></p>
+
+	<h2>IPUMS-Constructed Family Interrelationship Variables</h2>
+	<p>In 2017 IPUMS updated the family interrelationship variables in order to increase comparability across different data projects and over time, to include same-sex couples and other diverse family types, and to clearly communicate how links were identified so that researchers may choose to include or exclude certain types of links. These new versions of the family interrelationship variables are available for samples from 1970 on and are described in detail <a href="https://usa.ipums.org/usa/chapter5/NewfamilyinterrelationshipvariablesinIPUMSUSA.shtml">here</a>. For samples prior to 1970, the original family interrelationship variables are still used. Users should note that the different versions of family interrelationship variables are constructed using different rules and that this information is captured in two different variables. Variables indicating how links were formed for samples prior to 1970 have a _HIST suffix. Pre-2017 versions of the IPUMS family interrelationship variables are available <a href="https://usa.ipums.org/usa/chapter5/old_pointers_usa.shtml">here</a>.
+
+	</p><p>The IPUMS contains a consistent, versatile, and reliable set of constructed variables that describe a variety of family interrelationships among individuals within the same household. Researchers can use them to easily link characteristics of one family member to another - spouses to spouses, children to either or both parents, and so on - thereby speeding up analyses of family structures and characteristics.</p>
+
+	<h2>Basic Family Interrelationship Variables: SPLOC, MOMLOC, and POPLOC</h2>
+
+	<p>Each of the samples for the period since 1880 contains a variable indicating the relationship of each household member to the head of household as it was listed on the census form. The general codes for the IPUMS version of this variable, called <a href="https://usa.ipums.org/usa-action/variables/RELATE">RELATE</a> (Relationship to household head/householder), are reasonably compatible across all census, ACS, and PRCS years for which this variable is available (see the variable description, <a href="https://usa.ipums.org/usa-action/variables/RELATE">RELATE</a>, for more information on comparability across samples). While RELATE provides basic family relationship information, it can not identify all family relationships and is therefore often inconvenient as a tool for constructing new family variables.</p>
+
+	<p>Consider the household in Table 1. RELATE sufficiently establishes that the two daughters are both children of the household head/householder, but to identify the other family interrelationships we must look to the daughters' other characteristics. We can infer that the son-in-law is married to the second daughter rather than the first one because they share the same surname and are both listed as married. For analogous reasons, we know that the grandchild is probably the child of the second daughter listed. It is also safe to assume that the two boarders are married to one another because they are both married, they share the same surname, they are both adults close to the same age, and they are listed adjacently.</p>
+
+	<table>
+		<caption>Table 1. Family Relationships to Household Head</caption>
+	<tbody><tr>
+		<th>Surname</th>
+		<th>Relationship</th>
+		<th>Age</th>
+		<th>Sex</th>
+		<th>Marital Status</th>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Head</td>
+		<td>61</td>
+		<td>F</td>
+		<td>W</td>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Daughter</td>
+		<td>32</td>
+		<td>F</td>
+		<td>S</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Son-in-law</td>
+		<td>32</td>
+		<td>M</td>
+		<td>M</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Daughter</td>
+		<td>27</td>
+		<td>F</td>
+		<td>M</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Grandchild</td>
+		<td>4</td>
+		<td>M</td>
+		<td>S</td>
+	</tr><tr>
+		<td>Salerno</td>
+		<td>Boarder</td>
+		<td>26</td>
+		<td>M</td>
+		<td>M</td>
+	</tr><tr>
+	<td>Salerno</td>
+		<td>Boarder</td>
+		<td>22</td>
+		<td>F</td>
+		<td>M</td>
+	</tr>
+	</tbody></table>
+
+	<p>To allow users to identify relationships among spouses, parents, and children without forcing them to use multiple variables and complicated logic, the IPUMS includes a set of pointers called <a href="https://usa.ipums.org/usa-action/variables/SPLOC">SPLOC</a>, <a href="https://usa.ipums.org/usa-action/variables/MOMLOC">MOMLOC</a>, and <a href="https://usa.ipums.org/usa-action/variables/POPLOC">POPLOC</a>. These pointers identify the location within the household of each individual's own spouse, mother, and father, respectively. Table 2 illustrates these variables. <a href="https://usa.ipums.org/usa-action/variables/PERNUM">PERNUM</a> (Person number in unit) is an IPUMS variable that indicates each individual's position within the household as listed on the original census form. SPLOC shows the PERNUM of each individual's own spouse. In Table 2, the son-in-law is married to the second daughter, and her PERNUM is 04. Therefore, the son-in-law's SPLOC is 04-the same as his wife's PERNUM. MOMLOC and POPLOC show the PERNUMs of own mothers and own fathers; for example, the mother and father of the grandchild are in positions 04 (MOMLOC) and 03 (POPLOC). Of course, many persons do not have a spouse, mother, or father living in the household with them; these cases are assigned a code of "00" for the appropriate variable(s).</p>
+
+	<table>
+		<caption>Table 2. Family Relationships with SPLOC, MOMLOC, and POPLOC</caption>
+	<tbody><tr>
+		<th>Surname</th>
+		<th>Relationship</th>
+		<th>PERNUM</th>
+		<th>SPLOC</th>
+		<th>MOMLOC</th>
+		<th>POPLOC</th>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Head</td>
+		<td>01</td>
+		<td>00</td>
+		<td>00</td>
+		<td>00</td>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Daughter</td>
+		<td>02</td>
+		<td>00</td>
+		<td>01</td>
+		<td>00</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Son-in-law</td>
+		<td>03</td>
+		<td>04</td>
+		<td>00</td>
+		<td>00</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Daughter</td>
+		<td>04</td>
+		<td>03</td>
+		<td>01</td>
+		<td>00</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Grandchild</td>
+		<td>05</td>
+		<td>00</td>
+		<td>04</td>
+		<td>03</td>
+	</tr><tr>
+		<td>Salerno</td>
+		<td>Boarder</td>
+		<td>06</td>
+		<td>07</td>
+		<td>00</td>
+		<td>00</td>
+	</tr><tr>
+	<td>Salerno</td>
+		<td>Boarder</td>
+		<td>07</td>
+		<td>06</td>
+		<td>00</td>
+		<td>00</td>
+	</tr>
+	</tbody></table>
+
+	<p>SPLOC, MOMLOC, and POPLOC can be used to identify conjugal units, to attach characteristics of spouses or parents, to develop specialized own-child measures, or to serve as building blocks for more elaborate measures of family composition. In most cases, users will be able to manipulate these variables to construct their own measures within a statistical package and will not be forced to resort to higher-level programming.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE1">1</a></sup></p>
+
+	<p>Most scholarly family classification schemes are built up from information on the presence of immediate kin. The basic Census Bureau classifications focus on the presence of spouses and children of the household head/householder; the Laslett scheme widely used by historians is based on a count of "conjugal family units" consisting of parents and children or married couples.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE2">2</a></sup> SPLOC, MOMLOC, and POPLOC make it relatively simple to construct such classifications.</p>
+
+	<p>Family historians are increasingly moving from household-level schemes of family classification toward individual-level measures of family structure. For example, instead of measuring the proportion of households headed by a single female parent, we might assess the proportion of women who were single parents or the proportion of children residing with mothers only. Such individual-level analyses offer a variety of advantages that have been detailed elsewhere.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE3">3</a></sup> The individual-level IPUMS pointer variables are especially suited for creating these kinds of measures.</p>
+
+	<h2>Additional Constructed Family Variables </h2>
+
+	<p>In addition to SPLOC, MOMLOC, and POPLOC, the IPUMS provides a variety of other constructed variables to aid researchers in creating new family variables. These are described in Table 3. Four of the constructed variables apply to entire households. NFAMS counts the number of families present in the household. For this purpose a family is defined as any group of persons with identifiable relationships by blood, marriage, or adoption. A single individual residing without any relatives is considered a separate family. Thus, a household consisting of an elderly widow residing with a servant would count as two families, and a large extended family with multiple generations but no boarders, lodgers, or servants would count as a single family. NCOUPLES (Number of married couples), NMOTHERS (Number of mothers), and NFATHERS (Number of fathers) are based on counts of non-zero values in SPLOC, MOMLOC, and POPLOC, respectively.</p>
+
+
+	<table>
+		<caption>Table 3. IPUMS Family Interrelationship Variables</caption>
+	<tbody><tr>
+		<th colspan="2">Household
+	Record</th>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NFAMS">NFAMS</a>:</td>
+		<td>Number of families in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NCOUPLES">NCOUPLES</a>:</td>
+		<td>Number of married couples present in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NMOTHERS">NMOTHERS</a>:</td>
+		<td>Number of women with own child present in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NFATHERS">NFATHERS</a>:</td>
+		<td>Number of men with own child present in household</td>
+	</tr><tr>
+		<th colspan="2">Person Record</th>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/PERNUM">PERNUM</a>:</td>
+		<td>Sequence number of person within household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/RELATE">RELATE</a>:</td>
+		<td>Relationship of person to household head/householder</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/FAMSIZE">FAMSIZE</a>:</td>
+		<td>Number of household members related to person</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/FAMUNIT">FAMUNIT</a>:</td>
+		<td>Family unit membership</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/SPLOC">SPLOC</a>:</td>
+		<td>Location of own spouse within household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/MOMLOC">MOMLOC</a>:</td>
+		<td>Location of own mother within household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/POPLOC">POPLOC</a>:</td>
+		<td>Location of own father within household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NCHILD">NCHILD</a>:</td>
+		<td>Number of own children in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NCHLT5">NCHLT5</a>:</td>
+		<td>Number of own children under age five in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/ELDCH">ELDCH</a>:</td>
+		<td>Age of eldest own child in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/YNGCH">YNGCH</a>:</td>
+		<td>Age of youngest own child in household</td>
+	</tr><tr>
+		<td><a href="https://usa.ipums.org/usa-action/variables/NSIBS">NSIBS</a>:</td>
+		<td>Number of own siblings in household</td>
+	</tr>
+	</tbody></table>
+
+	<p>The additional individual-level constructed variables on family and household relationships listed in Table 3 are fully illustrated in Table 4. FAMSIZE (Number of own family members) and FAMUNIT (Family unit membership) use the same definition of family employed for NFAMS. FAMSIZE is useful for creating a variety of family measures. For example, to determine if a family contains extended kin beyond spouse and children, one can subtract the size of the immediate family (spouse and children) from FAMSIZE; if the result is greater than one, there are other kin present. More complex measures of extended family configurations can be constructed using FAMUNIT, which in combination with <a href="https://usa.ipums.org/usa-action/variables/SERIAL">SERIAL</a> provides a unique identifier for each related group in the census.</p>
+
+	<table>
+		<caption>Table 4. Family Relationships with Additional Constructed Family Variables</caption>
+	<tbody><tr>
+		<th>Surname</th>
+		<th>Relationship</th>
+		<th>FAMSIZE</th>
+		<th>FAMUNIT</th>
+		<th>NCHILD</th>
+		<th>NCHLT5</th>
+		<th>ELDCH</th>
+		<th>YNGCH</th>
+		<th>NSIBS</th>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Head</td>
+		<td>05</td>
+		<td>1</td>
+		<td>2</td>
+		<td>0</td>
+		<td>32</td>
+		<td>27</td>
+		<td>0</td>
+	</tr><tr>
+		<td>Mulcahy</td>
+		<td>Daughter</td>
+		<td>05</td>
+		<td>1</td>
+		<td>0</td>
+		<td>0</td>
+		<td>99</td>
+		<td>99</td>
+		<td>1</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Son-in-law</td>
+		<td>05</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>04</td>
+		<td>04</td>
+		<td>0</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Daughter</td>
+		<td>05</td>
+		<td>1</td>
+		<td>01</td>
+		<td>1</td>
+		<td>04</td>
+		<td>04</td>
+		<td>1</td>
+	</tr><tr>
+		<td>Ryden</td>
+		<td>Grandchild</td>
+		<td>05</td>
+		<td>1</td>
+		<td>0</td>
+		<td>0</td>
+		<td>99</td>
+		<td>99</td>
+		<td>0</td>
+	</tr><tr>
+		<td>Salerno</td>
+		<td>Boarder</td>
+		<td>02</td>
+		<td>2</td>
+		<td>0</td>
+		<td>0</td>
+		<td>99</td>
+		<td>99</td>
+		<td>0</td>
+	</tr><tr>
+	<td>Salerno</td>
+		<td>Boarder</td>
+		<td>02</td>
+		<td>2</td>
+		<td>0</td>
+		<td>0</td>
+		<td>99</td>
+		<td>99</td>
+		<td>0</td>
+	</tr>
+	</tbody></table>
+
+	<p>The IPUMS also includes the four most commonly requested measures of own children - NCHILD (Number of own children), ELDCH (Age of eldest own child), YNGCH (Age of youngest own child), and NCHLT5 (Number of own children under age 5), derived from MOMLOC, POPLOC, and <a href="https://usa.ipums.org/usa-action/variables/AGE">AGE</a>. Finally, there is NSIBS (Number of own siblings), which counts the number of persons within the household who share a common parent or who have family relationship codes that imply a sibling relationship.</p>
+
+	<h2>Creation of MOMLOC and POPLOC </h2>
+
+	<p>Assigning links between parents and their children is usually straightforward. In about 97 percent of cases the census information on family relationships is sufficient to establish parent-child links. For example, if an individual is listed as a child of the household head/householder, his or her parents should always be listed as the household head/householder or wife of head; there is little ambiguity because each household has one head and no more than one wife. Similarly, the parents of persons listed as the household head/householder or a sibling of the head are always listed as mother or father of the head, and each household contains no more than one person listed as mother and no more than one listed as father.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE4">4</a></sup> Parentage is almost as clear-cut for persons listed as wife or sibling-in-law, since households ordinarily do not include multiple mothers-in-law or fathers-in-law.</p>
+
+	<p>For persons who have family relationships other than head, wife, child, sibling, or sibling-in-law, the relationship information does not identify parental relationships with as much precision. For example, we know that a person listed as a grandchild of the head is the child of one of the household head's children and/or children-in-law. However, if the family contains more than one person listed as child or child-in-law, we can not always be sure which one(s) are the grandchild's parent(s). Even if there is only one child present, there is still room for error, since a grandchild could be the offspring of persons not living in the household. In some cases - such as secondary families consisting of boarders - the relationship codes may provide no information for linking parents and children.</p>
+
+	<p>Whenever the family relationship codes are unclear, we must turn to other information to identify parent-child relationships. Every census from 1880 to 2000 and the 2000-onward ACS and PRCS samples contain three additional pieces of information that can be used to clarify ambiguities: age, marital status, and the order in which individuals are listed on the census form.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE5">5</a></sup> For example, if a household contains a widowed daughter followed immediately by a grandchild who is twenty years younger than the daughter, we may reasonably infer a mother-child relationship even if other daughters are present. Each census year also includes other information that can be used to distinguish parental relationships, but the availability of this information is irregular. For example, in the census years 1880, 1910, 1920, 1940, and 1950, we can identify persons who share the same surname (see <a href="https://usa.ipums.org/usa-action/variables/SURSIM">SURSIM</a>). For 1960, 1970, 1980, and 1990, on the other hand, we can identify the number of children ever born to every adult woman (see <a href="https://usa.ipums.org/usa-action/variables/CHBORN">CHBORN</a>). Neither SURSIM nor CHBORN are available for the 2000-2010 censuses or the 2000-onward ACS and PRCS samples.</p>
+
+	<p>Our procedure for linking parents and children attempted to reconcile two competing goals. The first goal was to create fully compatible links by using only information available across all census and ACS and PRCS years. The second was to identify, as accurately as possible, as many of the total links as we could for each census and ACS and PRCS year. To accomplish the latter, we had to use all information available for any given year. The IPUMS programming rules for MOMLOC and POPLOC therefore represent a compromise between the conflicting goals of compatibility and completeness.</p>
+
+	<p>The linking rules are described in detail in the <a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#APPEN">Appendix</a> to this chapter. Compatibility is our first priority, so we begin by establishing all parental relationships that could be plausibly identified using only relationship, age, sex, marital status, and sequence in the household listing-that is, information available in all of the component samples. The first three rules (see the Appendix to this chapter) reflect this part of the process. The next four rules use information available only in some census years to comb out the few parent-child links not identified by the first three rules. We developed these rules through trial-and-error experimentation, continuously checking the results of the programming with our own interpretations of a collection of the most problematic household records selected from several census years, and then fine-tuning the rules until we were satisfied. The variables <a href="https://usa.ipums.org/usa-action/variables/MOMRULE_HIST">MOMRULE_HIST</a> and <a href="https://usa.ipums.org/usa-action/variables/POPRULE_HIST">POPRULE_HIST</a> identify which particular logical rule was used to establish a parental relationship in any given case. For analyses comparing multiple census years, users can ensure full compatibility by using only those links that were established under rules 1 through 3.</p>
+
+	<p>In practice, the additional information available in particular census years does not make a great deal of difference. For the censuses of 1880 through 1960, 99.5 percent or more of parental links were established by means of the first three logical rules.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE6">6</a></sup> In recent sample years, the percentage of cases requiring additional information has risen because marital status has become less of a determinant of parenthood - by 1990, "only" 97.9 percent of maternal links were established by means of the first three rules.</p>
+
+	<h2>Identifying Stepparents </h2>
+
+	<p>The logical rules used to create MOMLOC and POPLOC links parents to adopted children and stepchildren as well as biological children. This may be appropriate for the study of topics such as the family economy, but for some topics - such as fertility analysis - adopted children and stepchildren should be eliminated whenever possible. Researchers who wish to limit their analysis to biological children can use the variables <a href="https://usa.ipums.org/usa-action/variables/STEPMOM">STEPMOM</a> and <a href="https://usa.ipums.org/usa-action/variables/STEPPOP">STEPPOP</a> to identify probable biological relationships. The values for these variables are defined in Table 5.</p>
+
+	<table>
+		<caption>Table 5. STEPMOM/STEPOP Values</caption>
+	<tbody><tr>
+		<th>Code</th>
+		<th>Explanation</th>
+	</tr><tr>
+		<td>0</td>
+		<td>Probable biological parent.</td>
+	</tr><tr>
+		<td>1</td>
+		<td>Age difference between parent and child improbable (outside the range 15-49 for mothers and 15-64 for fathers).</td>
+	</tr><tr>
+		<td>2</td>
+		<td>The link was only established because the parent was married to another parent.<sup>a</sup></td>
+	</tr><tr>
+		<td>3</td>
+		<td>Detailed relationship codes explicitly specify a step-parent relationship - information not available in 1850-1870, 1960, 1970, 1980 or in the ACS and PRCS samples.</td>
+	</tr><tr>
+		<td>4</td>
+		<td>Mother has zero children surviving; only available in 1900 and 1910.</td>
+	</tr><tr>
+		<td>5</td>
+		<td>Detailed relationship codes specify that the child is adopted - information available only for 1880-1930 and the 2000 census.</td>
+	</tr><tr>
+		<td>6</td>
+		<td>Child was born before marriage of parent and there is a mismatch between parental birthplace on child's record and birthplace of parent. Available only for 1900 and 1910.</td>
+	</tr><tr>
+		<td>7</td>
+		<td>For STEPMOM: Number of children present exceeds number ever born (or, for 1900 and 1910, number surviving), and child was born before marriage of mother (current marriage in 1900, 1910, and 1950; first marriage in other years) - information not available for 1850-1880, 1920-1950, 2000, the ACS, the PRCS, or the 1970 Form 2 samples.</td>
+	</tr><tr>
+		<td>7</td>
+		<td>For STEPPOP: Surname differs and child is a male or never-married female (female under age 15, 1850-1870) - information not available for the 1960-2000 censuses and the ACS and the PRCS samples.</td>
+	</tr>
+	</tbody></table>
+
+	<p><sup>a</sup>See <a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#APPEN">Appendix</a>. The frequency of value 2 for STEPMOM is lower than the frequency of value 7 for MOMRULE_HIST only because most mothers assigned under rule 7 have an improbable age difference and are therefore assigned a STEPMOM value of 1.</p>
+
+	<p>Where more than one value for STEPMOM or STEPPOP was valid, the lower value was assigned. To analyze biological children one can eliminate links with a value of greater than zero on STEPMOM or STEPPOP. When comparing successive census years, one should use only values 1 and 2 of STEPMOM and STEPPOP, since they are the only ones consistently available.</p>
+
+	<p>With the exception of the 1900 and 1910 census years, 2 percent or less of children can be identified as stepchildren or adopted children. The frequency of identifiable stepchildren is somewhat higher in 1900 and 1910, which is not surprising since those census years provide more relevant information than any others. In particular, they are the only years that indicate the number of surviving children for each woman.</p>
+
+	<p>The true percentage of stepchildren and adopted children is no doubt higher in all census years than STEPMOM and STEPPOP indicate. Because we cannot identify all biological children, own-child fertility estimates derived from the census will be slightly biased. In particular, we would expect that estimates of mothers' ages at childbirth may be a bit low, because second and third wives are on average younger than first wives.</p>
+
+	<h2>Creation of SPLOC </h2>
+
+	<p>Spousal links are much easier to establish than are parental links, except for the 2010 census when marital status was not asked. Most households have only one married couple; when more than one married couple is present, proximity is a reliable indicator of who goes with whom. In all census years, about 99 percent of married couples are listed adjacently on the census forms, and the few exceptions can almost all be resolved through relationship codes.</p>
+
+	<p>The spouse links were carried out by means of seven IPUMS programming rules described in the <a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#APPEN">Appendix</a> to this chapter. These rules use only information that is available in all census years and are therefore fully compatible. Even though the spousal rules ignore much relevant information available in particular census years - such as surname, marriage duration, and age at first marriage - we nevertheless consider them to be much more reliable than the rules governing parental links.</p>
+
+	<h2>Comparing IPUMS linking procedures with those developed for older census samples </h2>
+
+	<p>The only previous large census dataset to incorporate family relationship variables similar to MOMLOC and SPLOC was the original 1910 Public Use Microdata Sample and Black oversample (Strong et al. 1989). These datasets are now two of the seven component samples that comprise the IPUMS "1.4% 1910 sample with oversamples." They can be identified using the <a href="https://usa.ipums.org/usa-action/variables/SAMP1910">SAMP1910</a> variable: cases with a SAMP1910 value of 5 come from the original 1-in-250 national sample developed prior to the IPUMS; cases with a SAMP1910 value of 6 come from the Black oversample that was released along with the 1-in-250 dataset.</p>
+
+	<p>These samples were developed before the IPUMS existed, and they used different linking strategies than are employed in the IPUMS. We have retained the samples' original linking variables, and we have also created IPUMS-style linking variables for these samples. Users interested in the creation of family inter-relationship variables may want to compare the IPUMS variables with those developed for these earlier 1910 samples.</p>
+
+	<p>The original 1910 linking variables are contained in the IPUMS as <a href="https://usa.ipums.org/usa-action/variables/MOMNO">MOMNO</a> (Mother number) and <a href="https://usa.ipums.org/usa-action/variables/WIFENO">WIFENO</a> (Wife number). The creators of the early 1910 sample adopted a much more elaborate procedure for creating links between mothers and children and between husbands and wives. In the most obvious cases - those with completely unambiguous relationship codes and no other hint of ambiguity - the 1910 system relied on logical rules to assign linkages. In all other cases, however, the 1910 system turned to a complicated point system based on probabilities. Each characteristic that could be used to identify potential mother-child or husband-wife links - such as similar surnames, relationship codes, age differences, and so on - was assigned a point value based on its power to predict "correct" links in a small hand-linked subset of the data. The sum of these points was then calculated for all potential links in the sample - the IPUMS preserves these sums in <a href="https://usa.ipums.org/usa-action/variables/MOMLNKWT">MOMLNKWT</a> (Weight of mother link) and <a href="https://usa.ipums.org/usa-action/variables/WIFLNKWT">WIFLNKWT</a> (Weight of wife link). If the sum exceeded a prespecified minimum, the link was accepted, and if it fell below a prespecified minimum, the link was rejected. When the sum of weights fell in the gray zone links were carried out by hand, by reexamining the case on the original microfilm. The final rationale for each link is recorded in the <a href="https://usa.ipums.org/usa-action/variables/MOMLKREA">MOMLKREA</a> and <a href="https://usa.ipums.org/usa-action/variables/WIFLKREA">WIFLKREA</a> variables.</p>
+
+	<p>We experimented extensively with similar probability-based point systems for assigning links, but we found them unsatisfactory. The importance of any particular characteristic depends on its context. For example, surnames assume great significance when the relationship codes are ambiguous, but they should otherwise be ignored. A simple additive point system proved incapable of such distinctions.</p>
+
+	<p>The 1910 procedure ran into similar difficulties. Despite the complexity of the probability-based linking system, it was sufficient to identify only the most straightforward links. More than 20 percent of individuals in the sample - some 75,000 - fell into the gray zone and had to be reexamined by hand. If we had adopted a similar procedure for the IPUMS, it would have meant looking up about 10 million cases individually, which would have multiplied the cost of the IPUMS manyfold.</p>
+
+	<p>The logical rules described in the <a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#APPEN">Appendix</a> to this chapter produce results very similar to the 1910 procedure at a fraction of the cost. Excluding stepchildren, the maternal links obtained through each method differed in 0.66 percent of cases. When the two methods differed, we examined each case and found that in many cases the 1910 links were clearly correct. In most cases, however, the census listings are truly ambiguous, and the links are a matter of guesswork. The spousal links are more clear-cut: the IPUMS and the 1910 procedures produce identical results in over 99.9 percent of cases, even though the IPUMS method ignores all variables that are not available for the entire period from 1880 to 1990.</p>
+
+	<h2>Imputing Relationships and Interrelationships for 1850, 1860, and 1870: IMPREL, IMPMOM, IMPPOP, and IMPSP</h2>
+
+	<p>The 1850-1870 censuses did not record relationship to head of household or marital status - the two most important variables for identifying parental and spousal relationships - so the variables RELATE, MOMLOC, POPLOC, and SPLOC are not available for 1850-1870. However, the 1850-1870 censuses do contain sufficient information to reliably impute most family relationships, and we have designed variables for the IPUMS that take advantage of this fortunate fact. The resulting variables are comparable to the key family relationship and interrelationship variables for other years, allowing researchers to incorporate 1850-1870 into analyses of change over time.</p>
+
+	<p>The 1850-1870 census instructions to marshals specified that within each household, "the names are to be written beginning with the father and mother; or, if either, or both, be dead, begin with some other ostensible head of the family; to be followed, as far as practicable, with the name of the oldest child residing at home, then the next oldest, and so on to the youngest, then the other inmates, lodgers and boarders, laborers, domestics, and servants." In addition to this sequential information, the 1850-1870 censuses provides other valuable clues to family relationship: surname, age, sex, occupation, and birthplace. These form the bases for the IPUMS variable <a href="https://usa.ipums.org/usa-action/variables/IMPREL">IMPREL</a> (Imputed relationship), which in turn is used to create IMPMOM (Imputed location of mother), IMPPOP (Imputed location of father), and IMPSP (Imputed location of spouse).</p>
+
+	<p><strong>Imputed relationship (IMPREL)</strong>: Most of the time, 1850-1870 relationships could be inferred using a rather simple set of logical rules. However, about a quarter of the cases were too ambiguous to determine in this way. For these, we designed a probabilistic "hot deck" imputation procedure similar to the procedures that the Census Bureau uses to allocate missing and inconsistent information.</p>
+
+	<p><strong>Logical rules</strong>: Seventy-five percent of cases were assigned by the following logical rules:</p>
+
+	<ol>
+		<li><strong>Spouses:</strong> The first individual listed for each household was always assigned as household head. If the first person was male, the second was female, both were age 21+, both had the same surname, and the woman was no more than 15 years younger or 20 years older than the head, she was assigned the relationship of wife. (In 1880, when relationship was listed, over 99 percent of such women were, in fact, listed as wives of the head.)</li>
+		<li><strong>Children:</strong> A person listed immediately after the head and wife was assigned as a child of the head if s/he had the same surname and was 16 to 50 years younger than the head and 15 to 45 years younger than the wife. Individuals following the first child were assigned as additional children if they met the same conditions and were listed in descending age order, with no more than 15 years of age separating adjacent children. (In 1880, over 99 percent of persons meeting these criteria were, in fact, listed as children of the head.)</li>
+	</ol>
+
+	<p><strong>Imputation of remaining cases:</strong> Twenty-five percent of the cases could not be assigned according to the above logical rules. These cases were imputed via a hot deck procedure. We identified nineteen key individual characteristics available in the 1850-1870 samples that were strong predictors of family relationship in 1880:</p>
+
+	<ol>
+		<li>Surname compared to household head (same or different?)</li>
+		<li>Surname compared to immediately preceding individual</li>
+		<li>Sequence of listing within household</li>
+		<li>Age</li>
+		<li>Difference between age and the age of the head or his wife</li>
+		<li>Difference between age and the age of the preceding individual</li>
+		<li>Presence and location of probable own spouse (defined as an adjacent person of the opposite sex age 16+ with the same surname and an appropriate age)</li>
+		<li>Number of probable siblings (defined as same-surname persons no more than 15 years younger or older who were not probable spouses)</li>
+		<li>Number of probable parents (defined as same-surname persons more than 15 years older)</li>
+		<li>Number of probable children (defined as same-surname persons more than 15 years younger)</li>
+		<li>Imputed relationship to head of immediately preceding person</li>
+		<li>Occupation</li>
+		<li>Head's occupation</li>
+		<li>Migration status (non-migrant in household with a non-migrant head; migrant in household with a non-migrant head; non-migrant in household with a migrant head; migrant in household with a head who migrated from the same place; or migrant in household with a head who migrated from a different place)</li>
+		<li>Household type (heads are either married men, single men, or single women)</li>
+		<li>Urban/rural status</li>
+		<li>Farm status</li>
+		<li>State of residence</li>
+		<li>Region of residence</li>
+	</ol>
+
+	<p>The IPUMS program classifies each individual case from 1850-1870 according to these nineteen characteristics. It then searches the 1880 sample to find the most geographically proximate individual who shared all nineteen characteristics, and assigns that 1880 person's <a href="https://usa.ipums.org/usa-action/variables/RELATE">RELATE</a> (Relationship to head) code to the 1850-1870 case for <a href="https://usa.ipums.org/usa-action/variables/IMPREL">IMPREL</a>. In some cases, no perfect match can be found. For these cases, each of the nineteen characteristics is weighted according to its predictive power, based on a regression analysis of the 1880 sample. The program searches the 1880 sample for the best match, as determined by the sum of the weights.</p>
+
+	<p>Note that we did not include race as a predictor, as is customary in such allocation procedures. In the context of the other nineteen variables, race was an insignificant predictor of relationship to head. Moreover, the 1880 black population, which contained many freed slaves, probably differed significantly from the free black population of the 1850 and 1860 samples. (Slaves are not included in the 1850 sample because that census did not collect enough information about them). This would make the 1880 variable <a href="https://usa.ipums.org/usa-action/variables/RACE">RACE</a> an unreliable predictor for 1850 and 1860.</p>
+
+	<p>We tested the imputation procedure by applying it to the 1880 sample, matching each person to another 1880 person. (We instructed the program not to match a person to him/herself or to any other person in the same household.) We also imputed relationships for the 1910 sample, matching persons to 1880 donors in order to see if thirty years of change in household composition would introduce unacceptable biases. Both tests yielded satisfactory results. For 1880, the imputed relationship matched the relationship listed on the census form (and included in RELATE) 95 percent of the time. For heads, wives, and their children, this figure rises to nearly 99 percent. For 1910, the results were virtually the same. Furthermore, the method is unbiased; it yields the correct distribution of family relationships for both samples. Given that the 1910 imputed relationships are just as unbiased and reliable as the 1880 ones, the imputed relationships for 1850-1870 should also be unbiased and reliable.</p>
+
+	<p>Nevertheless, as with any imputed variable, users should exercise reasonable caution. In particular, they should note that any differentials in household structure between population subgroups (e.g., by class, race, or ethnicity) are likely to be slightly understated due to random error in the imputation.</p>
+
+	<p><strong>Imputed family interrelationships (IMPMOM, IMPPOP, and IMPSP)</strong>: Just as the IPUMS uses RELATE (Relationship to head) to create MOMLOC, POPLOC, and SPLOC for 1880 through 1990, it uses <a href="https://usa.ipums.org/usa-action/variables/IMPREL">IMPREL</a> to create IMPMOM (Imputed location of mother), IMPPOP (Imputed location of father), and IMPSP (Imputed location of spouse) for 1850-1870. The rules are described in the <a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#APPEN">Appendix</a> to this chapter.</p>
+
+	<p>The 1850-1870 samples also contain imputed versions of the above-mentioned constructed variables <a href="https://usa.ipums.org/usa-action/variables/NFAMS">NFAMS</a>, <a href="https://usa.ipums.org/usa-action/variables/NCOUPLES">NCOUPLES</a>, <a href="https://usa.ipums.org/usa-action/variables/NMOTHERS">NMOTHERS</a>, <a href="https://usa.ipums.org/usa-action/variables/NFATHERS">NFATHERS</a>, <a href="https://usa.ipums.org/usa-action/variables/FAMUNIT">FAMUNIT</a>, <a href="https://usa.ipums.org/usa-action/variables/NCHILD">NCHILD</a>, <a href="https://usa.ipums.org/usa-action/variables/ELDCH">ELDCH</a>, <a href="https://usa.ipums.org/usa-action/variables/YNGCH">YNGCH</a>, <a href="https://usa.ipums.org/usa-action/variables/NCHLT5">NCHLT5</a>, and <a href="https://usa.ipums.org/usa-action/variables/NSIBS">NSIBS</a>. These are all located in the same IPUMS columns as their respective latter-year counterparts.</p>
+
+	<h2 id="APPEN">APPENDIX</h2>
+
+	<h3 style="text-transform: none;">Logical Rules for Inferring MOMLOC/IMPMOM, POPLOC/IMPPOP, and SPLOC/IMPSP</h3>
+
+	<p>In the great majority of cases, parents and children can be unambiguously linked via a simple set of rules applied to five pieces of information available in every census year from 1880 through 1990: relationship to household head, age, sex, marital status, and sequence of listing on the census form. For 1850-1870, if imputed relationship (described above) is substituted for relationship to household head, the same rules can be applied.</p>
+
+	<p>In a few instances, however, it is necessary to use additional information available only for a subset of census years. The IPUMS linking procedure is designed to allow users to use only links based on information available across all census years, or to use extra information available in a particular census year to make the additional links.</p>
+
+	<h3 style="text-transform: none;">Parental Links</h3>
+
+	<p>Parental links were established through seven basic rules. If a link could be established through more than one rule, the lower-numbered rule was used, as the lower-numbered rules are generally the least ambiguous. The rule used in any particular case is identified in the variables <a href="https://usa.ipums.org/usa-action/variables/MOMRULE_HIST">MOMRULE_HIST</a> and <a href="https://usa.ipums.org/usa-action/variables/POPRULE_HIST">POPRULE_HIST</a>.</p>
+
+	<p><strong>Rule 1.</strong> <em>Unambiguous relationships</em></p>
+
+	<ol type="a">
+		<li>If the relationship<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE7">7</a></sup> of an individual to the household head/householder is son, daughter, or child then establish parental links to persons listed as head or wife, or if the relationship of an individual to the household head/householder is head, brother, or sister, then establish parental links to persons listed as mother or father, or</li>
+		<li>if the relationship of an individual to the household head/householder is wife, brother-in-law, or sister-in-law, then establish parental links to persons listed as mother-in-law or father-in-law.</li>
+	</ol>
+
+	<p><strong>Rule 2.</strong> <em>Grandchildren</em><br>
+	If the relationship of individual to household head/householder is listed as grandson, granddaughter, or grandchild, then establish parental link to the most proximate listed ever-married child and/or child-in-law with a plausible age difference. Plausible age differences are defined as 12 to 54 years for women, and 15 to 74 years for men. If there is more than one eligible parent, choose the most proximate.</p>
+
+	<p><strong>Rule 3.</strong> <em>All other relatives and nonrelatives via
+	household position</em><br>
+	Link relatives and nonrelatives not mentioned above to any preceding ever-married person with a plausible age difference as defined in rule 2, as long as there are no persons listed between them besides children or spouses of the potential parent. Links between relatives and nonrelatives are prohibited.</p>
+
+	<p><strong>Rule 4.</strong> <em>All other relatives and nonrelatives via surname</em><br>
+	Same as Rule 3, except that surname similarity is substituted for the requirement that there are no persons listed between the parent and child. If more than one eligible parent is found, the most proximate is linked. This rule can only be applied in years with surname codes: 1850, 1860, 1870, 1880, 1910, 1920, 1940, and 1950.</p>
+
+	<p><strong>Rule 5.</strong> <em>Grandchildren via children-ever-born
+	or surviving</em><br>
+	Same as Rule 2, except evidence on children-ever-born (or children surviving in 1900 and 1910) is substituted for marital status of parent. This rule can not be used for 1850, 1860, 1870, 1880, 1920, 1940, or 1950.</p>
+
+	<p><strong>Rule 6.</strong> <em>All other relatives and nonrelatives via children-ever-born or surviving</em><br>
+	Same as Rule 3, except evidence on children-ever-born (or children surviving in 1900 and 1910) is substituted for marital status of parent. Again, this rule can not be used for 1850-1880, 1920, 1940, or 1950.</p>
+
+	<p><strong>Rule 7.</strong> <em>Spouse of linked parent</em><br>
+	If one parent is linked and has a spouse present, that spouse is linked as a stepparent. Users who want to limit their analysis to links that could be recognized in all census years can simply ignore links based on Rules 4 through 7. In each year, over 95 percent of links were established on the basis of Rule 1. For the period before 1980, over 99 percent of cases were linked on the basis of Rules 1, 2, or 3, which are fully compatible across census years. With the increase of births to never-married women in recent census years, however, Rules 5 and 6 have become increasingly important, since they substitute information on children-ever-born for information on marital status. We performed two basic checks for inconsistency of the family links. First, if two parents were linked but they were not married to each other, we unlinked the father. Second, if both partners in a married couple were linked to the same parent, we chose the best parental link based on detailed relationship code, surname, and proximity within the household.</p>
+
+	<h2>Spousal Links</h2>
+
+	<p>Spousal links (<a href="https://usa.ipums.org/usa-action/variables/SPLOC">SPLOC</a>/IMPSP) were made based on the following seven rules, identified in the variable <a href="https://usa.ipums.org/usa-action/variables/SPRULE_HIST">SPRULE_HIST</a>:</p>
+
+	<p><strong>Rule 1.</strong> Link married women to previous adjacent married men with an appropriate relationship.<sup><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#NOTE8">8</a></sup> Appropriate relationships are defined as follows:</p>
+
+	<table>
+	<tbody><tr>
+		<th>Man's relationship to head</th>
+		<th>Woman's relationship to head</th>
+	</tr><tr>
+		<td>Head of household</td>
+		<td>Wife</td>
+	</tr><tr>
+		<td>Son</td>
+		<td>Daughter-in-law</td>
+	</tr><tr>
+		<td>Father</td>
+		<td>Mother</td>
+	</tr><tr>
+		<td>Father-in-law</td>
+		<td>Mother-in-law</td>
+	</tr><tr>
+		<td>Brother</td>
+		<td>Sister-in-law</td>
+	</tr><tr>
+		<td>Brother-in-law</td>
+		<td>Sister</td>
+	</tr>
+	</tbody></table>
+
+	<p><strong>Rule 2.</strong> Link married women to following adjacent married men with an appropriate relationship as defined in Rule 1.</p>
+
+	<p><strong>Rule 3.</strong> Link married women to nonadjacent married men with an appropriate relationship as defined in Rule 1, provided the woman was at least 13, the man was at least 15, the man was not more than 25 years older than the woman, and the woman was not more than 10 years older than the man.</p>
+
+	<p><strong>Rule 4.</strong> Link married women with a relationship not specified in Rule 1 to previous adjacent married men with appropriate ages as defined in Rule 3, provided the resulting link does not link a non-relative to a relative.</p>
+
+	<p><strong>Rule 5.</strong> Same as Rule 4, but link married women to subsequent adjacent married men.</p>
+
+	<p><strong>Rule 6.</strong> Same as Rule 4, but link married women to non-adjacent married men.</p>
+
+	<p><strong>Rule 7. </strong>This rule only applies to pairings in which at least one person has an allocated marital status (<a href="https://usa.ipums.org/usa-action/variables/MARST">MARST</a>). As in rule 4, their ages fit parts b, c, and d of rule 3, <em>and </em>the link does not link a non-relative to a relative. However, one of them has an allocated marital status that is not 'married.' In this case, the spouse link is made and the allocated marital status is set to 1 ('married').</p>
+
+	<h2>ENDNOTES:</h2>
+
+	<ol>
+		<li>
+			<p id="NOTE1">For example, users frequently wish to attach the characteristics of immediate family members. The following SPSS-X command file uses <a href="https://usa.ipums.org/usa-action/variables/SPLOC">SPLOC</a> to attach the spouse's occupation to the record of each married person. <a href="https://usa.ipums.org/usa-action/variables/SERIAL">SERIAL</a> is an IPUMS variable, Household serial number, which is a unique identifier for each household. First we obtain an active file with SERIAL, <a href="https://usa.ipums.org/usa-action/variables/OCC">OCC</a> (Occupation), and SPLOC. SPLOC is renamed <a href="https://usa.ipums.org/usa-action/variables/PERNUM">PERNUM</a> (Person number in unit), and we rename OCC as "SPOCC," Spouse's occupation--the variable we have constructed for our own use. We sort the file by SERIAL and PERNUM, and then match it to the original file. Because the PERNUM we are matching was originally SPLOC, we are actually matching spousal occupations.</p>
+
+			<p>If you are working with a file called "test.sav" in the main directory of the C drive, for instance, the following set of commands works in SPSS format:</p>
+
+<pre class=" language-spss"><code class=" language-spss">GET FILE='C:\test.sav'.
+SORT CASES BY YEAR, SERIAL, PERNUM.
+SAVE OUTFILE='C:\test.sav'.
+
+GET FILE='C:\test.sav'
+	/KEEP=YEAR SERIAL SPLOC OCC
+	/RENAME (SPLOC=PERNUM)(OCC=SPOCC) .
+SELECT IF (PERNUM&gt;0).
+SORT CASES BY YEAR, SERIAL, PERNUM .
+SAVE OUTFILE='C:\temp.sav'.
+
+MATCH FILES TABLE='C:\temp.sav'
+	/FILE='C:\test.sav'
+	/BY YEAR, SERIAL, PERNUM .
+EXECUTE.
+SAVE OUTFILE='C:\newtest.sav'.</code></pre>
+
+			<p>The same set of commands in Stata format would be:</p>
+
+<pre class=" language-spss"><code class=" language-spss">cd C:\
+use test.dta
+sort year serial pernum
+save test.dta, replace
+
+use test.dta
+keep year serial sploc occ
+keep if sploc&gt;0
+rename sploc pernum
+rename occ spocc
+sort year serial pernum
+save temp.dta
+
+use test.dta
+merge year serial pernum using temp.dta
+save newtest.dta</code></pre>
+
+			<p>The same set of commands in SAS format would be:</p>
+
+<pre class=" language-spss"><code class=" language-spss">PROC SORT DATA= test ;
+BY year serial pernum ;
+RUN ;
+
+PROC SQL ;
+CREATE TABLE temp
+AS SELECT year, serial, sploc AS pernum, occ as spocc
+FROM test
+WHERE sploc &gt; 0
+ORDER BY year, serial, pernum ;
+
+CREATE TABLE merged
+AS SELECT a.*, b.spocc label="Spouse's occupation"
+FROM test AS a LEFT JOIN temp AS b
+ON (a.year=b.year AND a.serial=b.serial AND a.pernum=b.pernum) ;
+QUIT ;</code></pre>
+
+			<p>The same set of commands in R format would be:</p>
+
+<pre class=" language-r"><code class=" language-r">library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
+
+test <span class="token operator">&lt;-</span> data <span class="token percent-operator operator">%&gt;%</span>
+  filter<span class="token punctuation">(</span>SPLOC <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  select<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> PERNUM<span class="token punctuation">,</span> OCC<span class="token punctuation">)</span>
+
+temp <span class="token operator">&lt;-</span> data <span class="token percent-operator operator">%&gt;%</span>
+  filter<span class="token punctuation">(</span>SPLOC <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  select<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> SPLOC<span class="token punctuation">,</span> OCC<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  rename<span class="token punctuation">(</span>PERNUM <span class="token operator">=</span> SPLOC<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  rename<span class="token punctuation">(</span>SPOCC <span class="token operator">=</span> OCC<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  select<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> PERNUM<span class="token punctuation">,</span> SPOCC<span class="token punctuation">)</span>
+
+newtest <span class="token operator">&lt;-</span> merge<span class="token punctuation">(</span>test<span class="token punctuation">,</span> temp<span class="token punctuation">,</span> by <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"YEAR"</span><span class="token punctuation">,</span> <span class="token string">"SERIAL"</span><span class="token punctuation">,</span> <span class="token string">"PERNUM"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+			<p>It is almost as easy to use <a href="https://usa.ipums.org/usa-action/variables/MOMLOC">MOMLOC</a> and <a href="https://usa.ipums.org/usa-action/variables/POPLOC">POPLOC</a> to attach characteristics of own children. The following SPSS command file uses similar logic together with the "AGGREGATE" command to count the number of own children under the age of 10 for each woman:</p>
+
+<pre class=" language-spss"><code class=" language-spss">GET FILE='C:\test.sav'.
+SORT CASES BY YEAR, SERIAL, PERNUM.
+SAVE OUTFILE='C:\test.sav'.
+
+GET FILE='C:\test.sav'
+	/KEEP=YEAR SERIAL MOMLOC AGE
+	/RENAME (MOMLOC=PERNUM) .
+SELECT IF (AGE&lt;10 &amp; PERNUM&gt;0).
+SORT CASES BY YEAR, SERIAL, PERNUM.
+AGGREGATE
+	/OUTFILE='C:\temp.sav'
+	/BREAK=YEAR SERIAL PERNUM
+	/NCHLT10 = NU(YEAR).
+EXECUTE.
+
+MATCH FILES TABLE='C:\temp.sav'
+	/FILE='C:\test.sav'
+	/BY YEAR SERIAL PERNUM .
+RECODE NCHLT10 (SYSMIS=0) .
+EXECUTE.
+SAVE OUTFILE='C:\newtest.sav' .</code></pre>
+
+			<p>The same set of commands in Stata format would be:</p>
+
+<pre class=" language-stata"><code class=" language-stata">cd C:\
+use test.dta
+keep year serial momloc age
+rename momloc pernum
+keep if age&lt;10 &amp; pernum&gt;0
+sort year serial pernum
+collapse (count) age, by (year serial pernum)
+rename age nchlt10
+sort year serial pernum
+save temp.dta
+
+use test.dta
+sort year serial pernum
+merge year serial pernum using temp.dta
+save newtest.dta</code></pre>
+
+			<p>The same set of commands in SAS format would be:</p>
+
+<pre class=" language-sas"><code class=" language-sas"><span class="token keyword">PROC SORT</span> <span class="token keyword">DATA</span><span class="token operator">=</span>test <span class="token punctuation">;</span>
+BY year serial pernum <span class="token punctuation">;</span>
+<span class="token keyword">RUN</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">PROC SQL</span> <span class="token punctuation">;</span>
+CREATE TABLE temp
+AS SELECT DISTINCT year<span class="token punctuation">,</span> serial<span class="token punctuation">,</span> momloc AS pernum<span class="token punctuation">,</span> COUNT<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> AS nchlt10
+LABEL<span class="token operator">=</span><span class="token string">"Number of children under 10"</span>
+FROM test
+WHERE age <span class="token operator">&lt;</span> <span class="token number">10</span>
+GROUP BY year<span class="token punctuation">,</span> serial<span class="token punctuation">,</span> momloc
+ORDER BY year<span class="token punctuation">,</span> serial<span class="token punctuation">,</span> momloc <span class="token punctuation">;</span>
+
+CREATE TABLE merged AS
+SELECT a<span class="token punctuation">.</span>nchlt10<span class="token punctuation">,</span> b<span class="token punctuation">.</span><span class="token operator">*</span> FROM
+temp AS a RIGHT JOIN test AS b
+ON <span class="token punctuation">(</span>a<span class="token punctuation">.</span>year<span class="token operator">=</span>b<span class="token punctuation">.</span>year AND a<span class="token punctuation">.</span>serial<span class="token operator">=</span>b<span class="token punctuation">.</span>serial AND a<span class="token punctuation">.</span>pernum<span class="token operator">=</span>b<span class="token punctuation">.</span>pernum<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">QUIT</span> <span class="token punctuation">;</span></code></pre>
+
+			<p>The same set of commands in R format would be:</p>
+
+<pre class=" language-r"><code class=" language-r">library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
+
+test <span class="token operator">&lt;-</span> data <span class="token percent-operator operator">%&gt;%</span>
+  filter<span class="token punctuation">(</span>MOMLOC <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  select<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> PERNUM<span class="token punctuation">,</span> MOMLOC<span class="token punctuation">)</span>
+
+temp <span class="token operator">&lt;-</span> data <span class="token percent-operator operator">%&gt;%</span>
+  filter<span class="token punctuation">(</span>SPLOC <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  select<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> MOMLOC<span class="token punctuation">,</span> AGE<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  filter<span class="token punctuation">(</span>AGE <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">&amp;</span> MOMLOC <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  rename<span class="token punctuation">(</span>PERNUM <span class="token operator">=</span> MOMLOC<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  group_by<span class="token punctuation">(</span>YEAR<span class="token punctuation">,</span> SERIAL<span class="token punctuation">,</span> PERNUM<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  summarise<span class="token punctuation">(</span>NCHLT10 <span class="token operator">=</span> n<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+newtest <span class="token operator">&lt;-</span> merge<span class="token punctuation">(</span>test<span class="token punctuation">,</span> temp<span class="token punctuation">,</span> by <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"YEAR"</span><span class="token punctuation">,</span> <span class="token string">"SERIAL"</span><span class="token punctuation">,</span> <span class="token string">"PERNUM"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+		</li>
+		<li id="NOTE2">See Peter Laslett, "Introduction," in Laslett and R. Wall, eds., <em>Household and Family in Past Time</em>, 1972.</li>
+		<li id="NOTE3">See Miriam King and Samuel Preston, "Who Lives with Whom?: Individual Versus Household Measures," <em>Journal of Family History</em>, 15 (1990): 117-132; Steven Ruggles,<em> Prolonged Connections: The Rise of the Extended Family in Nineteenth-Century England and America</em>, 1987; Ruggles, "The Transformation of American Family Structure," <em>AmericanHistorical Review</em>, 99 (1994): 103-128; and Ruggles, "The Origins of African-American Family Structure," <em>American Sociological Review</em>, 59 (1994): 136-151.</li>
+		<li id="NOTE4">Households in the IPUMS files occasionally include more than one head, wife, mother of head, or father of head, usually because of enumerator or data-entry error. Such cases are corrected in the IPUMS version of the data by means of a consistency checking program prior to assigning parentage. We encountered true polygamous marriages very rarely; where these could be identified, we assigned the wives a detailed relationship code identifying them as wives of a polygamous husband.</li>
+		<li id="NOTE5">Before 1960, census enumeration instructions specified the sequence in which various relatives and nonrelatives should be listed on the census form. Since the introduction of self-enumeration in 1960, the instructions have become less explicit; nevertheless, respondents still have a strong tendency to list children immediately following their parents and to list married couples adjacently.</li>
+		<li id="NOTE6">Even a small percentage of missed parental links can have significant consequences for some kinds of analyses, such as the study of young children residing without parents.</li>
+		<li id="NOTE7">For 1850, Imputed relationship <a href="https://usa.ipums.org/usa-action/variables/IMPREL">IMPREL</a> is used as a substitute for Relationship <a href="https://usa.ipums.org/usa-action/variables/RELATE">RELATE</a>.</li>
+		<li id="NOTE8">Again, for 1850-1870, Imputed Relationship (IMPREL) is used as a substitute for Relationship (RELATE).</li>
+	</ol>
+
+	<p><a href="https://usa.ipums.org/usa/doc.shtml">Go back to the IPUMS User's Guide</a></p>
+
+	<p><a href="https://usa.ipums.org/usa/chapter5/chapter5.shtml#page-title">Back to Top</a></p>
+  <!-- END PLACING PAGE CONTENT -->
+  </div>
+	<section id="supported-by">
+        <h2>Supported By</h2>
+
+        <p>
+          <a href="http://www.nih.gov/"><img src="./IPUMS relationships_files/logo-NIH.png" alt="National Institutes of Health"></a>
+
+          <a href="http://www.nsf.gov/"><img src="./IPUMS relationships_files/logo-NSF.png" alt="National Science Foundation"></a>
+          
+          <a href="http://www.ancestry.com/"><img src="./IPUMS relationships_files/logo-Ancestry.png" alt="Ancestry" class="fixed-width"></a>
+
+          <a href="http://www.stattransfer.com/"><img src="./IPUMS relationships_files/logo-StatTransfer.png" alt="Stat/Transfer" class="fixed-width-sm"></a>
+
+          <a href="http://www.umn.edu/"><img src="./IPUMS relationships_files/logo-UofM.png" alt="University of Minnesota"></a>
+        </p>
+	</section>
+
+</div>
+<footer>
+	<nav>
+		<ul class="list-menu">
+      <li><a href="https://usa.ipums.org/usa/index.shtml">HOME</a></li>
+      <li><a href="https://usa.ipums.org/usa/data.shtml">DATA</a></li>
+      <li><a href="https://usa.ipums.org/usa/doc.shtml">SAMPLES</a></li>
+      <li><a href="https://usa.ipums.org/usa/support.shtml">SUPPORT</a></li>
+      <li><a href="https://usa.ipums.org/usa/search.shtml">SEARCH</a></li>
+		</ul>
+	</nav>
+
+  <p>Copyright © <a href="http://www.pop.umn.edu/">Minnesota Population Center</a>, <a href="http://www.umn.edu/"> University of Minnesota</a>.</p>
+
+</footer>
+
+
+</body></html>
