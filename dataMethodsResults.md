@@ -1,72 +1,21 @@
 ---
 title: "Deaf-of-Deaf: Data Methods & Results"
 author: "Adam C Sales"
-date: '`r Sys.Date()`'
+date: '2021-11-02'
 output: "word_document"
 ---
 
-```{r init,include=FALSE}
-library(knitr)
-library(tidyverse)
 
-knitr::opts_chunk$set(echo = FALSE,cache=TRUE)
 
-source('generalCode/estimationFunctions.r')
 
-pn = function(x) prettyNum(x,big.mark = ',')
-```
 
-```{r dataProcess,include=FALSE,cache=FALSE}
-if(!(
-  file.exists('data/gqTot.RData')&
-  file.exists('data/deafMissDat.RData')&
-  file.exists("data/deafFams.RData")
-)
-) source('R/data.r')
-```
 
-```{r descriptivesInclGQ,include=FALSE,results='markup'}
-  load('data/gqTot.RData')
-  nTot <- nrow(gqTot)
-  nDeafTot <- sum(gqTot$diffhear==2)
-  nDeafKid <- sum(gqTot$diffhear[gqTot$age<=17]==2)
-  
-  deafByGQ <- gqTot%>%
-    mutate(gq=c('Vacant','Households','Households',
-                'Institutions'	,
-                'Other group quarters',
-                'Households')[gq+1]
-    )%>%
-    group_by(gq)%>%
-    summarize(ngqSamp=n(),
-              ngqPop=sum(perwt),
-              ndeafSamp=sum(diffhear==2),
-              nDeafPop=sum(perwt[diffhear==2]),
-              ndeafKidSamp=sum(diffhear[age<=17]==2),
-              ndeafKidPop=sum(perwt[diffhear==2&age<=17])
-    )%>%
-    bind_rows(summarise(.,
-                        across(where(is.numeric), sum),
-                        across(where(is.character), ~"Total")))%>%
-    bind_rows(summarise(filter(.,gq%in%c('Institutions','Other group quarters')),
-                        across(where(is.numeric), sum),
-                        across(where(is.character), ~"Total GQ")))
-  
-  kable(deafByGQ,format.args=list(big.mark=','))
-  rm(gqTot)
 
-```
 
-```{r deafMissigness}
-load("data/deafMissDat.RData")
-deafMiss <- xtabs(~diffhear+qdifhear,data=deafMissDat)%>%
-  as.matrix()%>%
-  cbind(.,./rowSums(.)*100)%>%
-  `dimnames<-`(list(c('Hearing','Deaf'),c('Observed N','Imputed N','Observed %','Imputed %')))
-
-kable(deafMiss)
-rm(deafMissDat)
-```
+|        | Observed N| Imputed N| Observed %| Imputed %|
+|:-------|----------:|---------:|----------:|---------:|
+|Hearing |    2699380|    262005|   91.15262|  8.847380|
+|Deaf    |     117562|      9285|   92.68016|  7.319842|
 
 
 ## Data
@@ -84,32 +33,23 @@ Accuracy of the Data (2019)_, U.S. Government Publishing Office, Washington, DC.
 
 ### Data Description
 
-The 2019 ACS sample contains data pertaining to $n=$`r pn(nTot)` individuals, including `r pn(nDeafTot)` deaf individuals and `r pn(nDeafKid)` deaf children.
+The 2019 ACS sample contains data pertaining to $n=$3,239,553 individuals, including 139,575 deaf individuals and 3,277 deaf children.
 For the current study, we exclude people living in group quarters such as prisons, dormatories, or group homes. 
-There were `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Total GQ'])` sampled subjects in group quarters, including a total of `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Total GQ'])` deaf individuals and  `r pn(deafByGQ$ndeafKidSamp[deafByGQ$gq=='Total GQ'])` deaf children (representing an estimated `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Total GQ'])` people, `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Total GQ'])` whom are deaf and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Total GQ'])` are deaf children in the group quarters population.)
-Excluding group quarters leaves a total sample size of `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Households'])` people, including `r pn(deafByGQ$ndeafSamp[deafByGQ$gq=='Households'])` deaf people and `r pn(deafByGQ$ndeafKidSamp[deafByGQ$gq=='Households'])` deaf children. 
-This sample represents a population total of `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Households'])` people, including `r pn(deafByGQ$ndeafPop[deafByGQ$gq=='Households'])` deaf people and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Households'])` deaf children.
+There were 151,321 sampled subjects in group quarters, including a total of 151,321 deaf individuals and  102 deaf children (representing an estimated 8,084,362 people, 8,084,362 whom are deaf and 4,020 are deaf children in the group quarters population.)
+Excluding group quarters leaves a total sample size of 3,088,232 people, including 126,847 deaf people and 3,175 deaf children. 
+This sample represents a population total of 320,155,161 people, including  deaf people and 402,331 deaf children.
 
-Approximately `r round(deafMiss['Deaf','Imputed %'])`% of people labeled as "deaf" and `r round(deafMiss['Hearing','Imputed %'])`% of people labeled as "hearing" did not respond to the ACS question about hearing difficulty (i.e. item nonresponse). 
+Approximately 7% of people labeled as "deaf" and 9% of people labeled as "hearing" did not respond to the ACS question about hearing difficulty (i.e. item nonresponse). 
 Their deaf status was instead imputed by the ACS.
 
     
     
-```{r loadData,include=FALSE,cache=FALSE}
-ld <- TRUE
-if(exists("dat"))
-  if(is.element("ndeaf",names(dat)))
-    ld <- FALSE
 
-if(ld) load('data/deafFams.RData')
-```
 
-```{r popTotalDeafHH,include=FALSE}
-estPopHH <- dat%>%group_by(serial)%>%summarize(perwt=perwt[1],across(starts_with('repwtp'),~.[1]))%>%svTot(w1='perwt',wrep=paste0('repwtp',1:80))
-```
 
-The dataset includes `r pn(n_distinct(dat$serial))` households with at least one deaf member. 
-These represent an estimated `r pn(round(estPopHH[1]))`$\pm$`r pn(round(2*estPopHH['se']))` such households in the US population.
+
+The dataset includes 118,894 households with at least one deaf member. 
+These represent an estimated 10,359,959$\pm$71,207 such households in the US population.
     
 ## Methodology
 
@@ -119,45 +59,26 @@ For the purpose of this study, deafness is defined as a response of "Yes" to the
   
 ### Inferring relationships
 
-```{r mompoprulePercents}
-popDirect <- mean(between(dat$poprule[dat$poprule>0],10,19))
-momDirect <- mean(between(dat$poprule[dat$poprule>0],10,19))
-```
+
 
 ACS collects one form from each household, filled out by a member of the household, called "Person 1," who responds to questions about each member of the household, including themselves.
 One such question is "How is this person related to Person 1?"--that is, Person 1 is asked to list their [nb: how do we do gender? this is the "singular their"] relationship to each other household member.
 IPUMS infers family interrelationships within a household using responses to this question, in addition to supplementary information such as subjects' surnames (which IPUMS has access to, but which are not public) and the order in which they are listed in the response form. 
 A full description of this process can be found in the (IPUMS User Guide (Chapter 5))[https://usa.ipums.org/usa/chapter5/chapter5.shtml].
 Most relationships (approximately 
-`r round(popDirect*100)`%
+91%
 of inferred father-child and 
-`r round(momDirect*100)`%
+91%
 of inferred mother-child relationships) were inferred unambiguously, including cases in which Person 1 identifies themselves as the parent or child of someone else in the household. 
 The remainder of relationships were inferred following a set of rules, that are themselves based on assumptions regarding typical household structures, surnames, and other factors.
 
-```{r exampleFamily,results='markup'}
-fam <- intersect(dat$serial[dat$momrule>19&dat$famsize==4],
-                 dat$serial[dat$poprule>19&dat$famsize==4])
-dat%>%
-  filter(serial==fam[2] )%>%
-  transmute(`Person #`=pernum,
-            `Name*`=c('Ava','Benjamin','Charlotte','Delilah'),
-            `Rel. to Person 1`=c('Self',
-                                 'Spouse',
-                                 'Child',
-                                 'Child-in-law',
-                                 'Parent',
-                                 'Parent-in-Law',
-                                 'Sibling',
-                                 'Sibling-in-Law',
-                                 'Grandchild')[relate],
-            Age=age,
-            `Sex`=c('Male','Female')[sex],
-            `Mother #`=ifelse(momloc==0,'-',momloc),
-            `Father #`=ifelse(poploc==0,'-',poploc),
-            )%>%
-  kable(align='c')
-```
+
+| Person # |   Name*   | Rel. to Person 1 | Age |  Sex   | Mother # | Father # |
+|:--------:|:---------:|:----------------:|:---:|:------:|:--------:|:--------:|
+|    1     |    Ava    |       Self       | 77  | Female |    -     |    -     |
+|    2     | Benjamin  |      Child       | 45  |  Male  |    1     |    -     |
+|    3     | Charlotte |    Grandchild    | 10  | Female |    4     |    2     |
+|    4     |  Delilah  |   Child-in-law   | 43  | Female |    -     |    -     |
 
 For instance, consider the household in Table ??. Person 1 ("Ava") identified Person 2 ("Benjamin") as her son, Person 3 ("Charlotte") as her grandchild, and Person 4 ("Delilah") as her child-in-law^[These names are made-up for clarity of exposition; they were taken from the [list of most common names](https://www.ssa.gov/cgi-bin/popularnames.cgi) (visited 11/01/2021) for babies born in 2020, provided by the US Office of Social Security.]. Since Benjamin was the only one of Ava's children present, Charlotte was between 15 and 64 years younger than Benjamin, and Benjamin's sex was male, IPUMS listed Benjamin as Charlotte's father. 
 This assumption need not always hold--if Ava had other children (who are not members of the same household, and hence not listed), one of them may be Charlotte's father or mother, in which case Benjamin would be Charlotte's uncle, rather than her father. 
@@ -198,96 +119,39 @@ The analyses were peformed in R (CITE) and replication data and code (in Rmarkdo
 <!-- ## How many with more than one other deaf child? -->
 <!-- ############################################################################################################ -->
 
-```{r estimation}
-deafKids <- dat%>%
-  group_by(serial)%>%
-    arrange(pernum)%>%
-      mutate(
-        pn2=1:n(),
-        hasDad=poploc>0,hasMom=momloc>0,
-        hasParent=hasDad|hasMom,
-        deafDad=ifelse(hasDad,diffhear[poploc]==2,FALSE),
-        deafMom=ifelse(hasMom,diffhear[momloc]==2,FALSE),
-        deafDad2 = ifelse(poploc2==0,FALSE,diffhear[poploc2]==2),
-        deafMom2 = ifelse(momloc2==0,FALSE,diffhear[momloc2]==2),
-        numParents=I(momloc>0)+I(poploc>0)+I(momloc2>0)+I(poploc2>0),
-        deafParent=deafMom|deafDad|deafDad2|deafMom2,
-        deafDad=deafDad|deafDad2,
-        deafMom=deafMom|deafMom2,
-        numAdults=sum(age>17),
-        numDeafAdults=sum(age>17 & diffhear==2),
-        anyDeafAdults=numDeafAdults>0,
-        numDeafParents=deafDad+deafDad2+deafMom+deafMom2,
-        twoDeafParents=numDeafParents>=2,
-        numOtherDeafChildren=sum(age<18&diffhear==2)-1
-         )
 
-## just to check
-mean(deafKids$pernum==deafKids$pn2)
-
-deafKids <- filter(deafKids,diffhear==2,age<=17)
-
-#deafKids%>%group_by(age)%>%summarize(hasParent=mean(hasParent))%>%ggplot(aes(age,hasParent))+geom_point()+ylim(0,1)+geom_smooth()
-
-### estimate the total # in a subgroup & the % of non-GQ deaf kids who are in subgroup
-## rounding rules based on https://arxiv.org/ftp/arxiv/papers/1301/1301.1034.pdf
-estSubst <- function(subst,name){
-  N <- svTot(deafKids,subst,w1='perwt',wrep=paste0('repwtp',1:80))
-  N <- prettyNum(c(round(N[1:2],-floor(log(N['se'],10))+1),N[3]),big.mark=',')
-  per <- estSEstr(subst,w1='perwt',wrep=paste0('repwtp',1:80),sdat=deafKids)
-  roundPer <- ifelse(per['se']==0,0,-floor(log(per['se']*100,10))+1)
-  per <- c(
-      formatC(round(per[c(1,2)]*100,roundPer),roundPer,format='f'),
-      prettyNum(per[3],big.mark=',')
-  )
-  cbind(tibble(`living with...`=c(name,''),`N/%`=c('N','%')),rbind(N,per))
-}
-
-
-### total # of deaf children <18 (excl. GQ)
-total <- round(svTot(deafKids,w1='perwt',wrep=paste0('repwtp',1:80)))
-
-
-### proportions deaf kids
-kidEst <- bind_rows(
-    estSubst('age<18','TOTAL (non-GQ deaf children)'),
-    estSubst('numDeafParents>0','at least 1 deaf parent'),
-    estSubst('numDeafParents==1','exactly 1 deaf parent'),
-    estSubst('numDeafParents==2','exactly 2 deaf parents'),
-    estSubst('numDeafAdults>0','at least 1 deaf adult'),
-    estSubst('numDeafAdults>1','at least 2 deaf adults'),
-    estSubst('numOtherDeafChildren>0','at least 1 other deaf kid'),
-    estSubst('numOtherDeafChildren>1','at least 2 other deaf kids'))%>%
-    add_case(`living with...`="NOTES:")%>%
-    add_case(`living with...`=paste("Year=",paste(unique(dat$year),collapse=', ')))%>%
-    add_case(`living with...`="Excluding deaf children in group quarters")%>%
-    add_case(`living with...`="Child: <18; Adult: 18+")%>%
-    add_case(`living with...`="Denominator for % is all deaf children")
-
-kidEst[is.na(kidEst)] <- ''
-kable(kidEst)
+```
+## [1] 1
 ```
 
 
-```{r plots}
 
-map_dfr(c('numDeafParents','numDeafAdults','numOtherDeafChildren'),
-        function(varb)
-            map_dfr(seq(max(deafKids[[varb]])),~data.frame(x=varb,y=sum((deafKids[[varb]]==.)*deafKids$perwt)/sum(deafKids$perwt),num=.))
-        )%>%
-    mutate(
-        `# Deaf`=
-                c(numDeafParents="Parents",
-                  numDeafAdults="Adults",
-                  numOtherDeafChildren="Other Children")[x]%>%factor(levels=unique(.)),
-        num=factor(num,levels=rev(seq(max(num))))
-    )%>%
-    ggplot(aes(`# Deaf`,y,fill=num))+
-    geom_col()+
-    scale_y_continuous('% of Deaf Children Living With',breaks=seq(0,1,.02),labels=scales::percent)+
-    scale_fill_manual(name=NULL,values=c("#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"))
+|         |living with...                            |N/% |est     |se     |n     |
+|:--------|:-----------------------------------------|:---|:-------|:------|:-----|
+|N...1    |TOTAL (non-GQ deaf children)              |N   |402,000 |10,000 |3,175 |
+|per...2  |                                          |%   |100     |0      |3,175 |
+|N...3    |at least 1 deaf parent                    |N   |40,200  |3,400  |298   |
+|per...4  |                                          |%   |9.99    |0.80   |3,175 |
+|N...5    |exactly 1 deaf parent                     |N   |33,500  |2,800  |255   |
+|per...6  |                                          |%   |8.33    |0.66   |3,175 |
+|N...7    |exactly 2 deaf parents                    |N   |6,700   |1,700  |43    |
+|per...8  |                                          |%   |1.66    |0.41   |3,175 |
+|N...9    |at least 1 deaf adult                     |N   |56,800  |3,600  |433   |
+|per...10 |                                          |%   |14.13   |0.80   |3,175 |
+|N...11   |at least 2 deaf adults                    |N   |10,800  |1,800  |82    |
+|per...12 |                                          |%   |2.68    |0.43   |3,175 |
+|N...13   |at least 1 other deaf kid                 |N   |35,700  |3,700  |257   |
+|per...14 |                                          |%   |8.87    |0.85   |3,175 |
+|N...15   |at least 2 other deaf kids                |N   |6,400   |1,900  |45    |
+|per...16 |                                          |%   |1.59    |0.46   |3,175 |
+|...17    |NOTES:                                    |    |        |       |      |
+|...18    |Year= 2019                                |    |        |       |      |
+|...19    |Excluding deaf children in group quarters |    |        |       |      |
+|...20    |Child: <18; Adult: 18+                    |    |        |       |      |
+|...21    |Denominator for % is all deaf children    |    |        |       |      |
 
-```
+
+![plot of chunk plots](figure/plots-1.png)
 
 
 
