@@ -63,7 +63,7 @@ if(!(
     summarize(ngqSamp=n(),
               ngqPop=sum(perwt),
               ndeafSamp=sum(diffhear==2),
-              nDeafPop=sum(perwt[diffhear==2]),
+              ndeafPop=sum(perwt[diffhear==2]),
               ndeafKidSamp=sum(diffhear[age<=17]==2),
               ndeafKidPop=sum(perwt[diffhear==2&age<=17])
     )%>%
@@ -93,24 +93,28 @@ rm(deafMissDat)
 
 ## Data
 
-For this study we used the 2019 one-year public use microdata sample from the American Community Survey (ACS), which was pre-processed by [IPUMS USA](http://usa.ipums.org) (Ruggles, et al. 2020)^[Steven Ruggles, Sarah Flood, Ronald Goeken, Josiah Grover, Erin Meyer, Jose Pacas and Matthew Sobek. IPUMS USA: Version 10.0 [dataset]. Minneapolis, MN: IPUMS, 2020. https://doi.org/10.18128/D010.V10.0 Retrieved 11/29/2020]. 
-The ACS is a yearly survey of US households conducted by the US Census Bureau, that aims to include approximately one percent of the US population. While the ACS dataset includes individual-level information, data are collected and organized at the household level; hence, the ACS may be used to study population household characteristics. A detailed overview of ACS uses, including the material discussed below, can be found in U.S. Census Bureau (2020a)^[ U.S. Census Bureau (2020), _Understanding and Using American Community Survey Data: What All Data Users Need to Know_, U.S. Government Publishing Office, Washington, DC. [https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handbook_2020.pdf] accessed 11/01/2021.].
+For this study we used the 2015-2019 five-year public use microdata sample from the American Community Survey (ACS), which was pre-processed by [IPUMS USA](http://usa.ipums.org) (Ruggles, et al. 2020)^[Steven Ruggles, Sarah Flood, Ronald Goeken, Josiah Grover, Erin Meyer, Jose Pacas and Matthew Sobek. IPUMS USA: Version 10.0 [dataset]. Minneapolis, MN: IPUMS, 2020. https://doi.org/10.18128/D010.V10.0 Retrieved 11/03/2021]. 
+The ACS is a yearly survey of US households conducted by the US Census Bureau, that aims to include approximately one percent of the US population.
+Five-year ACS data is a combination of five one-year datasets; the larger sample size of the five-year datasets allows for more precise statistical estimates.
+While the ACS dataset includes individual-level information, data are collected and organized at the household level; hence, the ACS may be used to study population household characteristics. A detailed overview of ACS uses, including the material discussed below, can be found in U.S. Census Bureau (2020a)^[ U.S. Census Bureau (2020), _Understanding and Using American Community Survey Data: What All Data Users Need to Know_, U.S. Government Publishing Office, Washington, DC. [https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handbook_2020.pdf] accessed 11/01/2021.].
+
+
 
 The ACS includes two sets of survey weights for estimating population parameters--one for the population of US households, and one for the population of US individuals. In this study, we use the individual-level weights. These survey weights are designed to account for the complex survey design of the ACS, which entails that different households are randomly sampled with different probabilities, and to account for survey non-response. 
 The ACS also includes a set of replication weights to be used in standard error estimation.
 
 Although the ACS sample is intended as a representative sample of the US population, there are a number of sources of error in estimates of population quantities. 
 The random sampling design results in "sampling error," which is due to the fact that the data are a random sample of the population, rather than the entire population. The extent of the sampling error can be estimated based on the design of the random sample, and is reflected in the estimated standard errors we provide. 
-Like nearly all other surveys, the ACS is subject to non-sampling error as well. This, in turn, has five components. First, coverage error ocurrs if individuals in the population are excluded from the random sample by design--i.e. when subjects have a zero probability of being sampled, or when a person or household has a chance of being selected two or more times in the same sample. The ACS controls coverage error by attempting to ensure a comprehensive samping frame, as well as by comparing ACS-estimated population totals with independent estimates from other sources, and using that comparison to adjust ACS-based population estimates. The coverage rate for the total US population in 2019 (the ratio of the ACS-estimated population to an indepdent estimate) was 91.8%^[[https://www.census.gov/acs/www/methodology/sample-size-and-data-quality/coverage-rates/], accessed 11/01/2021.]. Second, unit nonresponse occurs when a housing unit does not reply to the survey. The ACS attempts to minimize unit-non-response by allowing three modes of response (internet, mail, and computer-assisted personal interview), repeated mailing, and personal visits from interviewers. The 2019 ACS had a 86.0% response rate for housing units^[[https://www.census.gov/acs/www/methodology/sample-size-and-data-quality/response-rates/index.php] accessed 11/01/2021.]. Adustments for remaining non-response, based on comparisons with independent estimates, are incorporated into the survey weights (U.S. Census Bureau 2020b)^[U.S. Census Bureau (2020), _American Community Survey
+Like nearly all other surveys, the ACS is subject to non-sampling error as well. This, in turn, has five components. First, coverage error ocurrs if individuals in the population are excluded from the random sample by design--i.e. when subjects have a zero probability of being sampled, or when a person or household has a chance of being selected two or more times in the same sample. The ACS controls coverage error by attempting to ensure a comprehensive samping frame, as well as by comparing ACS-estimated population totals with independent estimates from other sources, and using that comparison to adjust ACS-based population estimates. The coverage rate for the total US population in 2019 (the ratio of the ACS-estimated population to an indepdent estimate) was 92.1%^[[https://data.census.gov/cedsci/table?q=B98012&tid=ACSDT5Y2019.B98012] accessed 11/3/2021]. Second, unit nonresponse occurs when a housing unit does not reply to the survey. The ACS attempts to minimize unit-non-response by allowing three modes of response (internet, mail, and computer-assisted personal interview), repeated mailing, and personal visits from interviewers. The 2015-2019 ACS had a 92.4% response rate for housing units^[[https://data.census.gov/cedsci/table?q=B98021&tid=ACSDT5Y2019.B98021] accessed 11/03/2021.]. Adustments for remaining non-response, based on comparisons with independent estimates, are incorporated into the survey weights (U.S. Census Bureau 2020b)^[U.S. Census Bureau (2020), _American Community Survey
 Accuracy of the Data (2019)_, U.S. Government Publishing Office, Washington, DC. [https://www2.census.gov/programs-surveys/acs/tech_docs/accuracy/ACS_Accuracy_of_Data_2019.pdf] accessed 11/01/2021.]. Third, item nonresponse occurs when a response is received from a particular household, but one of the items in the survey is not answered. In this case, the ACS includes imputed responses, estimated based on the observed responses. Finally, measurement and processing error occur when questions are answered incorrectly by the survey respondent or processed incorrectly by Census Bureau staff. A number of procedures are in place to minimize these errors, but some may remain, nevertheless. 
 
 ### Data Description
 
-The 2019 ACS sample contains data pertaining to $n=$`r pn(nTot)` individuals, including `r pn(nDeafTot)` deaf individuals and `r pn(nDeafKid)` deaf children.
+The 2015-2019 ACS sample contains data pertaining to $n=$`r pn(nTot)` individuals, including `r pn(nDeafTot)` deaf individuals and `r pn(nDeafKid)` deaf children.
 For the current study, we exclude people living in group quarters such as prisons, dormatories, or group homes. 
-There were `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Total GQ'])` sampled subjects in group quarters, including a total of `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Total GQ'])` deaf individuals and  `r pn(deafByGQ$ndeafKidSamp[deafByGQ$gq=='Total GQ'])` deaf children (representing an estimated `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Total GQ'])` people, `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Total GQ'])` whom are deaf and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Total GQ'])` are deaf children in the group quarters population.)
+There were `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Total GQ'])` sampled subjects in group quarters, including a total of `r pn(deafByGQ$ndeafSamp[deafByGQ$gq=='Total GQ'])` deaf individuals and  `r pn(deafByGQ$ndeafKidSamp[deafByGQ$gq=='Total GQ'])` deaf children (representing an estimated `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Total GQ'])` people, `r pn(deafByGQ$ndeafPop[deafByGQ$gq=='Total GQ'])` whom are deaf and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Total GQ'])` are deaf children in the group quarters population.)
 Excluding group quarters leaves a total sample size of `r pn(deafByGQ$ngqSamp[deafByGQ$gq=='Households'])` people, including `r pn(deafByGQ$ndeafSamp[deafByGQ$gq=='Households'])` deaf people and `r pn(deafByGQ$ndeafKidSamp[deafByGQ$gq=='Households'])` deaf children. 
-This sample represents a population total of `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Households'])` people, including `r pn(deafByGQ$nDeafPop[deafByGQ$gq=='Households'])` deaf people and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Households'])` deaf children.
+This sample represents a population total of `r pn(deafByGQ$ngqPop[deafByGQ$gq=='Households'])` people, including `r pn(deafByGQ$ndeafPop[deafByGQ$gq=='Households'])` deaf people and `r pn(deafByGQ$ndeafKidPop[deafByGQ$gq=='Households'])` deaf children.
 
 Approximately `r round(deafMiss['Deaf','Imputed %'])`% of people labeled as "deaf" and `r round(deafMiss['Hearing','Imputed %'])`% of people labeled as "hearing" did not respond to the ACS question about hearing difficulty (i.e. item nonresponse). 
 Their deaf status was instead imputed by the ACS.
@@ -161,7 +165,7 @@ The remainder of relationships were inferred following a set of rules, that are 
 fam <- intersect(dat$serial[dat$momrule>19&dat$famsize==4],
                  dat$serial[dat$poprule>19&dat$famsize==4])
 dat%>%
-  filter(serial==fam[2] )%>%
+  filter(serial==fam[9] )%>%
   transmute(`Person #`=pernum,
             `Name*`=c('Ava','Benjamin','Charlotte','Delilah'),
             `Rel. to Person 1`=c('Self',
@@ -190,7 +194,7 @@ If other children of Ava's had been in the household, there would have been furt
 ### Estimating Population Quantitites
 
 We estimate population quantities--i.e., population totals and percentages--using the person-level weights provided with the ACS data.
-These weights are intended to generalize estimates to the 2019 population of individuals across the fifty states and Washington, DC, and that is how we interpret our estimates. 
+These weights are intended to generalize estimates to the 2015-2019 population of individuals across the fifty states and Washington, DC, and that is how we interpret our estimates. 
 This interpretation relies on a number of statistical assumptions, including the validity of the procedures that the Census Bureau uses to adjust the sampling weights for survey non-response and impute missing item-level responses, as well as the procedures IPUM uses to identify parentage and other family relationships within a household. 
 Violations of these assumptions are impossible to check with available data, and may lead to bias.
 However, assumptions of this nature are unavoidable in survey research, and the ACS sample is arguably the highest-quality data available for our purposes. 
@@ -198,7 +202,7 @@ However, assumptions of this nature are unavoidable in survey research, and the 
 We estimate standard errors for population quantities using the 80 replication weights provided in the ACS sample.
 
 ### Computation and Replication
-The analyses were peformed in R (CITE) and replication data and code (in Rmarkdown; CITE) are available at [](https://github.com/nationalDeafCenter/deaf-of-deaf).
+The analyses were peformed in R (R Core Team 2021^[R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL [https://www.R-project.org/].]) and replication data and code (in Rmarkdown; Xie 2021^[Yihui Xie (2021). knitr: A General-Purpose Package for Dynamic Report Generation in R. R package version 1.36.], Allaire et al. 2021^[JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and  Winston Chang and Richard Iannone (2021). rmarkdown: Dynamic Documents for R. R package version 2.11. URL [https://rmarkdown.rstudio.com.]]) are available at [https://github.com/nationalDeafCenter/deaf-of-deaf].
 
 
 ## Results
@@ -276,7 +280,7 @@ estSubst <- function(subst){
 ```
 
 The results of our analysis may be seen in Table ??? and Figure ???.
-We estimate that, in 2019, there were a total of 
+We estimate that, at any given point in 2015-2019, there were a total of 
 `r ci('age<18','N')` deaf children in the US, excluding those living in group quarters.
 Of those, `r bothCIs('numDeafParents>0')` lived with at least one deaf parent, 
 and `r bothCIs('numDeafParents==2')` lived with two deaf parents.

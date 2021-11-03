@@ -1,6 +1,6 @@
 require(tidyverse)
 
-dat <- read_csv('data/deafHHdata.csv')
+dat <- read_csv('data/fiveYear.csv')
 names(dat) <- tolower(names(dat))
 
 if(file.exists("data/gqTot.RData")) load("data/gqTot.RData") else{
